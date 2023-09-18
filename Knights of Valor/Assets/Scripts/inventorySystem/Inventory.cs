@@ -12,8 +12,12 @@ namespace inventorySystem
         [SerializeField]
         private int _size = 8;
 
+        public int Size => _size;
+
         [SerializeField]
         private List<InventorySlot> _slots;
+
+        public List<InventorySlot> Slots => _slots;
 
         private void OnValidate()
         {

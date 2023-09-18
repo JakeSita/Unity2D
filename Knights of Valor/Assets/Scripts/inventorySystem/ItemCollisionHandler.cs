@@ -18,7 +18,7 @@ namespace inventorySystem
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.TryGetComponent<GameItem>(out var gameItem)) return;
+            if (!collision.TryGetComponent<GameItem>(out var gameItem) || !_inventory.CanAcceptItem(gameItem.Stack)) return;
 
             _inventory.addItem(gameItem.Pick());
         }

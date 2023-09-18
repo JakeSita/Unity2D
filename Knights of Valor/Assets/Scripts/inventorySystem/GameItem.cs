@@ -14,6 +14,8 @@ namespace inventorySystem
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
 
+        public ItemStack Stack => _stack;
+
         private void OnValidate()
         {
             SetUpGameObject();
