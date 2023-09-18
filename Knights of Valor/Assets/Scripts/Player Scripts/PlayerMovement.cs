@@ -11,9 +11,10 @@ public class PlayerMovement : MonoBehaviour
     public ContactFilter2D movementFilter;
     public List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     Animator WalkAnimation;
-
+    BoxCollider2D walkCol;
     Vector2 movementInput;
     Rigidbody2D movementRb;
+    
 
 
     // Start is called before the first frame update
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movementRb = GetComponent<Rigidbody2D>();
         WalkAnimation = GetComponent<Animator>();
+        walkCol = GetComponent<BoxCollider2D>();
+        
     }
 
    
@@ -57,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool tryMove(Vector2 direction)
     {
-        int count = movementRb.Cast(
+        int count = walkCol.Cast(
                 direction,//X and Y value between -1 and 1 that represents the direction from the body to look for collisions
                 movementFilter, //the setting that determine where a collision can occur on such as layers to collide with
                 castCollisions, // list of collisions to store the found collision into after the cast is finished
