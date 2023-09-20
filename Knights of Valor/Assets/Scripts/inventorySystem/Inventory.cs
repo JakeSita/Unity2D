@@ -122,9 +122,9 @@ namespace inventorySystem
 
             }
 
-            if (spawn)
+            if (spawn && TryGetComponent<GameitemSpawner>(out var itemSpawner))
             {
-
+                itemSpawner.SpawnItem(_slots[atIndex].State);
             }
 
             ClearSlot(atIndex);
@@ -158,6 +158,11 @@ namespace inventorySystem
         public void ActiveSlot(int atindex)
         {
             ActiveSlotIndex = atindex;
+        }
+
+        public InventorySlot GetActiveSlot()
+        {
+            return _slots[ActiveSlotIndex];
         }
         
     }

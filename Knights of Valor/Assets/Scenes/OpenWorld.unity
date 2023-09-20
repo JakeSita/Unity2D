@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2090720536, guid: 06f4ef93d121842d6a3a0629128de1b8, type: 3}
+    - target: {fileID: 2377025340748462828, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3920336643956103242, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
       propertyPath: _stack._item
       value: 
@@ -1690,6 +1694,7 @@ GameObject:
   - component: {fileID: 418306524}
   - component: {fileID: 418306526}
   - component: {fileID: 418306527}
+  - component: {fileID: 418306532}
   - component: {fileID: 418306523}
   - component: {fileID: 418306528}
   - component: {fileID: 418306529}
@@ -2039,6 +2044,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0f328b61fe4908a63b44b179fb14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &418306532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418306520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430cd3a842d7646b29e37910f6d5abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemBasePrefab: {fileID: 6927003295072061409, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
 --- !u!1 &498908569
 GameObject:
   m_ObjectHideFlags: 0

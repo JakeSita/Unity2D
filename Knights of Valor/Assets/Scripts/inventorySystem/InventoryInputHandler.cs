@@ -36,7 +36,8 @@ namespace inventorySystem
 
         void OnThrow(InputAction.CallbackContext ctx)
         {
-            //
+            if(_inventory.GetActiveSlot().HasItem)
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
         }
 
         void OnNext(InputAction.CallbackContext ctx)
