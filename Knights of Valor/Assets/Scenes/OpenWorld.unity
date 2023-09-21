@@ -1793,17 +1793,18 @@ MonoBehaviour:
   movementFilter:
     useTriggers: 0
     useLayerMask: 1
-    useDepth: 1
+    useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 192
+      m_Bits: 64
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  movementInput: {x: 0, y: 0}
 --- !u!114 &418306524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2002,7 +2003,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2044,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0f328b61fe4908a63b44b179fb14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movement: {x: 0, y: 0}
 --- !u!114 &418306532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2419,6 +2421,10 @@ PrefabInstance:
       propertyPath: _stack._item
       value: 
       objectReference: {fileID: 11400000, guid: 8c6820a56d9e74ff1a1334bcf816c365, type: 2}
+    - target: {fileID: 3920336643956103242, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: _distanceThrown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3920336643956103242, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
       propertyPath: _stack._numberOfItems
       value: 1

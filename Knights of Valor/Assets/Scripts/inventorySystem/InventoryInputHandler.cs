@@ -11,6 +11,8 @@ namespace inventorySystem
     {
         private Inventory _inventory;
 
+        public Vector2 Movement;
+
 
         private void Awake()
         {
@@ -24,6 +26,7 @@ namespace inventorySystem
             InputActions.Instance.Game.Throw.performed += OnThrow;
             InputActions.Instance.Game.Next.performed += OnNext;
             InputActions.Instance.Game.Previous.performed += OnPrevious;
+            //InputActions.Instance.Player.Move.performed += OnMove;
 
         }
 
@@ -32,6 +35,9 @@ namespace inventorySystem
             InputActions.Instance.Game.Throw.performed -= OnThrow;
             InputActions.Instance.Game.Next.performed -= OnNext;
             InputActions.Instance.Game.Previous.performed -= OnPrevious;
+            //InputActions.Instance.Player.Move.performed -= OnMove;
+
+
         }
 
         void OnThrow(InputAction.CallbackContext ctx)
@@ -48,6 +54,7 @@ namespace inventorySystem
         void OnPrevious(InputAction.CallbackContext ctx) {
             _inventory.ActiveSlot(_inventory.ActiveSlotIndex - 1);
         }
+        
 
 
 

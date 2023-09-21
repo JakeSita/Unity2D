@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace inventorySystem
 {
@@ -12,6 +13,15 @@ namespace inventorySystem
     {
         [SerializeField]
         private GameObject _itemBasePrefab;
+        private Vector2 movementInput;
+        private Animator anime;
+        
+
+        private void Awake()
+        {
+            anime = GetComponent<Animator>();
+        }
+
 
 
         public void SpawnItem(ItemStack itemstack) {
@@ -24,10 +34,12 @@ namespace inventorySystem
 
             GameItemScript.SetStack(new ItemStack(itemstack.Item, itemstack.NumberOfItems));
 
-            GameItemScript.Throw(transform.localScale.x);
+            GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
             
         }
 
         
+
+
     }
 }
