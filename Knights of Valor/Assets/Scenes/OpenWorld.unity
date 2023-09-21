@@ -321,9 +321,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.18842933}
+  m_Offset: {x: 0, y: 0.04771918}
   serializedVersion: 2
-  m_Radius: 0.4045489
+  m_Radius: 0.36027104
 --- !u!1 &176023768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1489,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efd35ad10bf9492d8d62c7977918358, type: 3}
+--- !u!1001 &279873377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1740678529}
+    m_Modifications:
+    - target: {fileID: 2377025340748462828, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -326766938, guid: 95385792657bc45c1b812ea4c226fd90, type: 3}
+    - target: {fileID: 3920336643956103242, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: _stack._item
+      value: 
+      objectReference: {fileID: 11400000, guid: 64568d5a6e6174c65806c56d3a36474c, type: 2}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.7087407
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.009291
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09581918
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927003295072061409, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+      propertyPath: m_Name
+      value: Melee Weapon (ns)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
 --- !u!224 &298534060 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7499151144217130291, guid: 0efd35ad10bf9492d8d62c7977918358, type: 3}
@@ -1700,6 +1765,7 @@ GameObject:
   - component: {fileID: 418306529}
   - component: {fileID: 418306530}
   - component: {fileID: 418306531}
+  - component: {fileID: 418306533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1748,7 +1814,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1524475601, guid: 4ad0c71865ecd47b4afcc44e3de852ef, type: 3}
+  m_Sprite: {fileID: 146263618, guid: 8296f384090aa415d99a9f92e8be3fdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2020,18 +2086,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0065363944, y: -0.5550687}
+  m_Offset: {x: -0.0065363944, y: -0.2845499}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.25}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.5, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5816701, y: 0.09854138}
+  m_Size: {x: 0.5816701, y: 0.13424295}
   m_EdgeRadius: 0
 --- !u!114 &418306531
 MonoBehaviour:
@@ -2045,7 +2111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0f328b61fe4908a63b44b179fb14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: {x: 0, y: 0}
 --- !u!114 &418306532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,6 +2124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemBasePrefab: {fileID: 6927003295072061409, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+--- !u!114 &418306533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418306520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca69df2ffa8c74450ad1183166c681af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498908569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,6 +3684,7 @@ Transform:
   - {fileID: 726156786}
   - {fileID: 2086735151}
   - {fileID: 1077139724}
+  - {fileID: 2139589328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1889335805
@@ -7293,6 +7371,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
   m_PrefabInstance: {fileID: 1889335805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2139589328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6537966991673481518, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
+  m_PrefabInstance: {fileID: 279873377}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2902388175128126252
 PrefabInstance:
