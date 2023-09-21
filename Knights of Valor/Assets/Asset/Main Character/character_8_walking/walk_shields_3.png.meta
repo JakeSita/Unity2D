@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 504788ccf1bd1435d8fb60de4fc26776
+guid: 8296f384090aa415d99a9f92e8be3fdd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_0
+      name: walk_shields_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,28 +131,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -8, y: -10}
-        - {x: -8, y: 13}
-        - {x: 8, y: 13}
-        - {x: 8, y: -10}
-      - - {x: 11, y: 0}
-        - {x: 11, y: 1}
-        - {x: 11, y: 1}
-        - {x: 11, y: 0}
+      outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da25756ce66f541ff852c21d86b83b45
-      internalID: 2142991372
+      spriteID: b34923b735e1b46948fb7ac4bd6a446c
+      internalID: -511388285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_1
+      name: walk_shields_3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -160,20 +152,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f234e8eb5b2d4560b529be25e9e4c41
-      internalID: -479077873
+      spriteID: 6c6abcb7f9177458d96fbd32aeb8696c
+      internalID: 190102186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_2
+      name: walk_shields_3_2
       rect:
         serializedVersion: 2
         x: 64
@@ -181,20 +173,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9d5bdde766d74de8bf1a5803eee49fc
-      internalID: -264263246
+      spriteID: ce8d5596b45dd4a9e9101d6039bc4d12
+      internalID: 146263618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_3
+      name: walk_shields_3_3
       rect:
         serializedVersion: 2
         x: 0
@@ -202,20 +194,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e26809b1cb24aef9b615a5b6989a79
-      internalID: -653093983
+      spriteID: 0510396d14d8f4c2b9f75cf20ebb079d
+      internalID: 396248238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_4
+      name: walk_shields_3_4
       rect:
         serializedVersion: 2
         x: 32
@@ -223,20 +215,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7915118480bdd43699ae99ee7ce2b14b
-      internalID: -2069500287
+      spriteID: 1aba260b7a04b4bdfb13c8d877e34e0d
+      internalID: -574442770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_5
+      name: walk_shields_3_5
       rect:
         serializedVersion: 2
         x: 64
@@ -244,20 +236,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daa8c0ef7b33e4376938e219b675e890
-      internalID: 48958939
+      spriteID: 8360e8b7279ff43b980eeaa1cd52eeb8
+      internalID: -1535817869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_6
+      name: walk_shields_3_6
       rect:
         serializedVersion: 2
         x: 0
@@ -265,20 +257,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed3e83dc8d594411fa7bb4bf9e171495
-      internalID: -931203076
+      spriteID: c20f53d6e99b8425d9103687f224b0a0
+      internalID: -810327596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_7
+      name: walk_shields_3_7
       rect:
         serializedVersion: 2
         x: 32
@@ -286,20 +278,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59a319236e2d34cc587409ba50cdd67e
-      internalID: -2029302477
+      spriteID: 53d590843a2204788add96ea2e6470f3
+      internalID: 1096747064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_8
+      name: walk_shields_3_8
       rect:
         serializedVersion: 2
         x: 64
@@ -307,20 +299,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0672faf077fc344938b76337df864379
-      internalID: -283883147
+      spriteID: d6d8cc7ee27a94687925c57f302f1e1b
+      internalID: -779250945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_9
+      name: walk_shields_3_9
       rect:
         serializedVersion: 2
         x: 0
@@ -328,20 +320,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be9fa95eaadc64e29b73faf03086f80f
-      internalID: -1123069733
+      spriteID: fa55ede77011c41bfbce22e86b75eb79
+      internalID: -419923303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_10
+      name: walk_shields_3_10
       rect:
         serializedVersion: 2
         x: 32
@@ -349,20 +341,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a85df175c7be14749a851a117342cd6d
-      internalID: -1779402700
+      spriteID: 394f44ae2f75244a5bf17cf2eeca0600
+      internalID: 1103394570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: srw_arpg_spear01_0_11
+      name: walk_shields_3_11
       rect:
         serializedVersion: 2
         x: 64
@@ -370,14 +362,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5956a663f594d410ea532aee26a1d0f7
-      internalID: -896359910
+      spriteID: 5e9733382ce3048b5ac59aba42c0d2e0
+      internalID: -801482466
       vertices: []
       indices: 
       edges: []
@@ -393,18 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      srw_arpg_spear01_0_0: 2142991372
-      srw_arpg_spear01_0_1: -479077873
-      srw_arpg_spear01_0_10: -1779402700
-      srw_arpg_spear01_0_11: -896359910
-      srw_arpg_spear01_0_2: -264263246
-      srw_arpg_spear01_0_3: -653093983
-      srw_arpg_spear01_0_4: -2069500287
-      srw_arpg_spear01_0_5: 48958939
-      srw_arpg_spear01_0_6: -931203076
-      srw_arpg_spear01_0_7: -2029302477
-      srw_arpg_spear01_0_8: -283883147
-      srw_arpg_spear01_0_9: -1123069733
+      walk_shields_3_0: -511388285
+      walk_shields_3_1: 190102186
+      walk_shields_3_10: 1103394570
+      walk_shields_3_11: -801482466
+      walk_shields_3_2: 146263618
+      walk_shields_3_3: 396248238
+      walk_shields_3_4: -574442770
+      walk_shields_3_5: -1535817869
+      walk_shields_3_6: -810327596
+      walk_shields_3_7: 1096747064
+      walk_shields_3_8: -779250945
+      walk_shields_3_9: -419923303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

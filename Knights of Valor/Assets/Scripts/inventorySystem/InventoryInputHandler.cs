@@ -11,7 +11,7 @@ namespace inventorySystem
     {
         private Inventory _inventory;
 
-        public Vector2 Movement;
+        private Vector2 Movement;
 
 
         private void Awake()
