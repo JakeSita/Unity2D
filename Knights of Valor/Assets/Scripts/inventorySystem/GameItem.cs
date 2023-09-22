@@ -50,7 +50,7 @@ namespace inventorySystem
 
         public void Throw(float Xdir, float Ydir)
         {
-            Debug.Log(Xdir);
+            
             _rb.gravityScale = _throwGravity;
             var throwXForce = Random.Range(_minXandYForce, _maxXandYForce);
             if (Ydir != 0 && Xdir == 0)
@@ -70,10 +70,10 @@ namespace inventorySystem
         private IEnumerator DisableGravity(float atYVelocity)
         {
             
-            yield return new WaitUntil(() => _rb.velocity.y < -atYVelocity );
+            yield return new WaitUntil(() => _rb.velocity.y < -1 * (atYVelocity - 1) );
             _rb.velocity = Vector2.zero;
             _rb.gravityScale = 0;
-            Debug.Log("Gravity on " + _rb.velocity);
+            
         }
 
 

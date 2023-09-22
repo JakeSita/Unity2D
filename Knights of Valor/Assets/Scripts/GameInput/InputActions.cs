@@ -40,7 +40,7 @@ namespace GameInput
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""1531c66a-18cc-4752-b3b0-ca6422be0150"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",

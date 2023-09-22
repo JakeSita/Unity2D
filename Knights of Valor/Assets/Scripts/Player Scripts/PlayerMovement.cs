@@ -18,7 +18,21 @@ namespace inventorySystem
         BoxCollider2D walkCol;
         public Vector2 movementInput;
         Rigidbody2D movementRb;
+        [SerializeField]
+        private bool Swing;
+        private Vector3 Looking;
+        private Transform _transform;
 
+        public bool IsSwung
+        {
+            get => Swing;
+
+            set
+            {
+                Swing = value;
+            }
+
+        }
 
 
         // Start is called before the first frame update
@@ -27,6 +41,7 @@ namespace inventorySystem
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
+            _transform = GetComponent<Transform>();
 
         }
 
@@ -55,6 +70,9 @@ namespace inventorySystem
                 WalkAnimation.SetBool("IsMoving", false);
             }
 
+
+
+
         }
 
         void OnMove(InputValue movementValue)
@@ -63,6 +81,33 @@ namespace inventorySystem
             movementInput = movementValue.Get<Vector2>();
 
         }
+
+
+        void OnFire()
+        {
+
+            
+            Looking = Mouse.current.position.ReadValue();
+            Looking = Camera.main.ScreenToWorldPoint(Looking);
+            Looking = (Looking - transform.position).normalized;
+            WalkAnimation.SetFloat("XMouse", Looking.normalized.x );
+            WalkAnimation.SetFloat("YMouse", Looking.normalized.y );
+            WalkAnimation.SetTrigger("SwrdAttack");
+            StartCoroutine(DeactivateWeapon(1));
+
+            
+        }
+        private IEnumerator DeactivateWeapon(float time)
+        {
+
+            yield return new WaitForSeconds(time);
+
+            WalkAnimation.ResetTrigger("SwrdAttack");
+
+        }
+
+
+
 
         private bool tryMove(Vector2 direction)
         {
