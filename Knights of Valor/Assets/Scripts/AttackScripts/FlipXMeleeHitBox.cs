@@ -5,20 +5,21 @@ using UnityEngine;
 public class FlipXMeleeHitBox : MonoBehaviour
 {
     Collider2D boxCol;
-    
+
     Animator anime;
-    Vector2 AttackOffset;
     float Xmouse = 0f;
-    Vector2 playerPosition;
+    float Ymouse = 0f;
+
 
     private void Start()
     {
         boxCol = GetComponent<Collider2D>();
         anime = GetComponentInParent<Animator>();
+
         
     }
 
-    public void Attack() {
+    public void AttackHorizontal() {
         boxCol.enabled = true;
         //Debug.Log("before" + transform.position.x + "," + transform.position.y);
 
@@ -29,11 +30,34 @@ public class FlipXMeleeHitBox : MonoBehaviour
         float offset = Xmouse > 0 ? 1.0f : -1.0f; // Adjust this value as needed
 
         // Apply the offset to the current position
-        transform.position = new Vector3(offset, transform.position.y, transform.position.z);
+        transform.localScale = new Vector3(offset, 1f, 1f);
         
 
         //Debug.Log("After" + transform.position.x + "," + transform.position.y);
     }
+
+
+    public void AttackVertical()
+    {
+        boxCol.enabled = true;
+        //Debug.Log("before" + transform.position.x + "," + transform.position.y);
+
+        // Get the XMouse value from the animator
+        Ymouse = anime.GetFloat("YMouse");
+
+        // Calculate a position offset based on XMouse
+        float offset = Ymouse < 0 ? 1.0f : -1.0f; // Adjust this value as needed
+
+        // Apply the offset to the current position
+        if(offset == -1.0f)
+            transform.localScale = new Vector3(1f, offset - .5f, 1f);
+        else
+            transform.localScale = new Vector3(1f, offset, 1f);
+
+
+        //Debug.Log("After" + transform.position.x + "," + transform.position.y);
+    }
+
 
 
     public void StopAttack() { boxCol.enabled = false; }

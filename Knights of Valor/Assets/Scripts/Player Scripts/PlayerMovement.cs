@@ -24,6 +24,9 @@ namespace inventorySystem
 
         [SerializeField]
         private FlipXMeleeHitBox SwrdAttackX;
+        [SerializeField]
+        private FlipXMeleeHitBox SwrdAttackY;
+
         bool canMove = true;
 
         private bool IsSwung
@@ -124,10 +127,14 @@ namespace inventorySystem
         }
 
 
-        public void attack()
+        public void attackHorizontal()
         {
             LockMovement();
-            SwrdAttackX.Attack();
+
+            if (Mathf.Abs(Looking.normalized.x) > Mathf.Abs(Looking.normalized.y))
+                SwrdAttackX.AttackHorizontal();
+            else
+                SwrdAttackY.AttackVertical();
 
         }
 
@@ -140,6 +147,7 @@ namespace inventorySystem
         {
             canMove = true;
             SwrdAttackX.StopAttack();
+            SwrdAttackY.StopAttack();
         }
 
 
