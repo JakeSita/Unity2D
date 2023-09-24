@@ -32,7 +32,7 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    private float adjustCurrentHealth(float change) {
+    public float adjustCurrentHealth(float change) {
         if (_invicibilityFramesCurr > 0)
             return _healthCur;
 

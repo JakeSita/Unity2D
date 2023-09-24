@@ -16,14 +16,17 @@ namespace inventorySystem
         public List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
         Animator WalkAnimation;
         BoxCollider2D walkCol;
-        public Vector2 movementInput;
+        private Vector2 movementInput;
         Rigidbody2D movementRb;
         [SerializeField]
         private bool Swing;
         private Vector3 Looking;
-        private Transform _transform;
 
-        public bool IsSwung
+        [SerializeField]
+        private FlipXMeleeHitBox SwrdAttackX;
+        bool canMove = true;
+
+        private bool IsSwung
         {
             get => Swing;
 
@@ -41,37 +44,39 @@ namespace inventorySystem
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
-            _transform = GetComponent<Transform>();
+           
 
         }
 
 
         private void FixedUpdate()
         {
-            if (movementInput != Vector2.zero)
+            if (canMove)
             {
-                bool success = tryMove(movementInput);
-                WalkAnimation.SetBool("IsMoving", true);
-
-                if (!success)
+                if (movementInput != Vector2.zero)
                 {
-                    success = tryMove(new Vector2(movementInput.x, 0));
-
+                    bool success = tryMove(movementInput);
+                    WalkAnimation.SetBool("IsMoving", true);
 
                     if (!success)
                     {
-                        success = tryMove(new Vector2(0, movementInput.y));
+                        success = tryMove(new Vector2(movementInput.x, 0));
 
+
+                        if (!success)
+                        {
+                            success = tryMove(new Vector2(0, movementInput.y));
+
+                        }
                     }
                 }
+                else
+                {
+                    WalkAnimation.SetBool("IsMoving", false);
+                }
+
+
             }
-            else
-            {
-                WalkAnimation.SetBool("IsMoving", false);
-            }
-
-
-
 
         }
 
@@ -85,15 +90,13 @@ namespace inventorySystem
 
         void OnFire()
         {
-
+            GetMouseValueAttackAnimation();
+            if(WalkAnimation.GetBool("Melee Weapon"))
+            {
+                WalkAnimation.SetTrigger("SwrdAttack");
+                StartCoroutine(DeactivateWeapon(1));
+            }
             
-            Looking = Mouse.current.position.ReadValue();
-            Looking = Camera.main.ScreenToWorldPoint(Looking);
-            Looking = (Looking - transform.position).normalized;
-            WalkAnimation.SetFloat("XMouse", Looking.normalized.x );
-            WalkAnimation.SetFloat("YMouse", Looking.normalized.y );
-            WalkAnimation.SetTrigger("SwrdAttack");
-            StartCoroutine(DeactivateWeapon(1));
 
             
         }
@@ -106,6 +109,38 @@ namespace inventorySystem
 
         }
 
+        private void GetMouseValueAttackAnimation()
+        {
+            Looking = Mouse.current.position.ReadValue();
+            Looking = Camera.main.ScreenToWorldPoint(Looking);
+            Looking = (Looking - transform.position).normalized;
+            WalkAnimation.SetFloat("XMouse", Looking.normalized.x);
+            WalkAnimation.SetFloat("YMouse", Looking.normalized.y);
+            if(WalkAnimation.GetBool("Melee Weapon"))
+            {
+                WalkAnimation.SetTrigger("SwrdAttack");
+                StartCoroutine(DeactivateWeapon(1));
+            }
+        }
+
+
+        public void attack()
+        {
+            LockMovement();
+            SwrdAttackX.Attack();
+
+        }
+
+        public void LockMovement()
+        {
+            canMove = false;
+        }
+
+        public void UnlockMoement()
+        {
+            canMove = true;
+            SwrdAttackX.StopAttack();
+        }
 
 
 
