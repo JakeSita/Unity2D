@@ -84,7 +84,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.2857143
-    functionName: UnlockMoement
+    functionName: UnlockMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

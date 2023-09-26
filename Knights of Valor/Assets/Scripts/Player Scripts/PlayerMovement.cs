@@ -94,13 +94,6 @@ namespace inventorySystem
         void OnFire()
         {
             GetMouseValueAttackAnimation();
-            if(WalkAnimation.GetBool("Melee Weapon"))
-            {
-                WalkAnimation.SetTrigger("SwrdAttack");
-                StartCoroutine(DeactivateWeapon(1));
-            }
-            
-
             
         }
         private IEnumerator DeactivateWeapon(float time)
@@ -109,6 +102,7 @@ namespace inventorySystem
             yield return new WaitForSeconds(time);
 
             WalkAnimation.ResetTrigger("SwrdAttack");
+            WalkAnimation.ResetTrigger("StaffShoot");
 
         }
 
@@ -124,6 +118,11 @@ namespace inventorySystem
                 WalkAnimation.SetTrigger("SwrdAttack");
                 StartCoroutine(DeactivateWeapon(1));
             }
+            if (WalkAnimation.GetBool("projectile Weapon"))
+            {
+                WalkAnimation.SetTrigger("StaffShoot");
+                StartCoroutine(DeactivateWeapon(1));
+            }
         }
 
 
@@ -137,17 +136,28 @@ namespace inventorySystem
                 SwrdAttackY.AttackVertical();
 
         }
+        public void Staff()
+        {
+            LockMovement();
+            
+
+        }
 
         public void LockMovement()
         {
             canMove = false;
         }
 
-        public void UnlockMoement()
+        public void UnlockMovement()
         {
             canMove = true;
-            SwrdAttackX.StopAttack();
-            SwrdAttackY.StopAttack();
+            
+
+            if (WalkAnimation.GetBool("Melee Weapon"))
+            {
+                SwrdAttackX.StopAttack();
+                SwrdAttackY.StopAttack();
+            }
         }
 
 

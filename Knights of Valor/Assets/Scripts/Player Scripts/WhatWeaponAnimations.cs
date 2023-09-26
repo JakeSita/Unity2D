@@ -32,10 +32,12 @@ public class WhatWeaponAnimations : MonoBehaviour
             {
                 case "Melee Weapon":
                     anime.SetBool("Melee Weapon", true);
+                    anime.SetBool("projectile Weapon", false);
                     break;
 
                 case "Projectile Weapon":
                     anime.SetBool("projectile Weapon", true);
+                    anime.SetBool("Melee Weapon", false);
                     break;
 
 
