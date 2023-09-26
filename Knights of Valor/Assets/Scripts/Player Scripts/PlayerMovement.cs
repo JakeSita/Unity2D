@@ -26,6 +26,8 @@ namespace inventorySystem
         private FlipXMeleeHitBox SwrdAttackX;
         [SerializeField]
         private FlipXMeleeHitBox SwrdAttackY;
+        [SerializeField]
+        private ShootingDirections ShootingX;
 
         bool canMove = true;
 
@@ -131,16 +133,37 @@ namespace inventorySystem
             LockMovement();
 
             if (Mathf.Abs(Looking.normalized.x) > Mathf.Abs(Looking.normalized.y))
-                SwrdAttackX.AttackHorizontal();
+            {
+                    SwrdAttackX.AttackHorizontal();
+                
+            }
             else
-                SwrdAttackY.AttackVertical();
+            {
+                    SwrdAttackY.AttackVertical();
+                
+                if (WalkAnimation.GetBool("projectile Weapon"))
+                {
+                    ShootingX.AttackVertical();
+                }
+            }
+                    
+                
 
         }
         public void Staff()
         {
             LockMovement();
-            
 
+            if (Mathf.Abs(Looking.normalized.x) > Mathf.Abs(Looking.normalized.y))
+            {
+                ShootingX.AttackHorizontal();
+                Debug.Log("shooting");
+
+
+            }
+            else
+                ShootingX.AttackVertical();
+            
         }
 
         public void LockMovement()
