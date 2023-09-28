@@ -27,6 +27,11 @@ namespace inventorySystem
         [SerializeField]
         private FlipXMeleeHitBox SwrdAttackY;
 
+        //house transitions
+        public VectorValue startingPosition;
+
+
+
         bool canMove = true;
 
         private bool IsSwung
@@ -47,8 +52,7 @@ namespace inventorySystem
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
-           
-
+            transform.position = startingPosition.initialValue;
         }
 
 
