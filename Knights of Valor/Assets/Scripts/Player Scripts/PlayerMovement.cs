@@ -28,6 +28,8 @@ namespace inventorySystem
         private FlipXMeleeHitBox SwrdAttackY;
         [SerializeField]
         private ShootingDirections ShootingX;
+        [SerializeField]
+        private Shooting shot;
 
         bool canMove = true;
 
@@ -49,6 +51,7 @@ namespace inventorySystem
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
+            
            
 
         }
@@ -139,12 +142,7 @@ namespace inventorySystem
             }
             else
             {
-                    SwrdAttackY.AttackVertical();
-                
-                if (WalkAnimation.GetBool("projectile Weapon"))
-                {
-                    ShootingX.AttackVertical();
-                }
+                SwrdAttackY.AttackVertical();
             }
                     
                 
@@ -157,12 +155,13 @@ namespace inventorySystem
             if (Mathf.Abs(Looking.normalized.x) > Mathf.Abs(Looking.normalized.y))
             {
                 ShootingX.AttackHorizontal();
-                Debug.Log("shooting");
-
-
+                shot.fire();
             }
             else
+            {
                 ShootingX.AttackVertical();
+                shot.fire();
+            }
             
         }
 

@@ -5,16 +5,18 @@ using inventorySystem;
 
 public class WhatWeaponAnimations : MonoBehaviour
 {
-    Animator anime;
+    private Animator anime;
 
-    Inventory _inventory;
+    private Inventory _inventory;
 
+    private HealthSystem PlayerHealth;
 
 
     void Start()
     {
         anime = GetComponent<Animator>();
         _inventory = GetComponent<Inventory>();
+        PlayerHealth = GetComponent<HealthSystem>();
 
     }
 
