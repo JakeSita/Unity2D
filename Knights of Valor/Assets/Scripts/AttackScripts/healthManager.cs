@@ -37,6 +37,7 @@ public class HealthSystem : MonoBehaviour
             return _healthCur;
 
         _healthCur += change;
+        Debug.Log(_healthCur);
 
         if(_healthCur <= .01f)
             onDeath();

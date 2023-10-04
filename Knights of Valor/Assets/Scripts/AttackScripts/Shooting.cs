@@ -16,14 +16,9 @@ public class Shooting : MonoBehaviour
         Bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         var rb = Bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
-        DestoryBullet(distanceOfBullet);
+        Destroy(Bullet, distanceOfBullet);
     }
-    private IEnumerator DestoryBullet(float time)
-    {
 
-        yield return new WaitForSeconds(time);
-        Destroy(Bullet);
-        
-    }
+   
 
 }

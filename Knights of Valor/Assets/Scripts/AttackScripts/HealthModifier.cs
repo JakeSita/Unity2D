@@ -21,19 +21,20 @@ public class HealthModifier : MonoBehaviour
     bool _destroyOnCollision = false;
 
 
-    private void onTriggerEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        Debug.Log("u hit something");
         GameObject hitObj = collision.gameObject;
-
         HealthSystem healthManager = hitObj.GetComponent<HealthSystem>();
-
         if(healthManager && IsValidTarget(hitObj)){
             healthManager.adjustCurrentHealth(_healthChange);
 
-            if (_destroyOnCollision)
-            {
-                GameObject.Destroy(gameObject);
-            }
+            
+        }
+        if (_destroyOnCollision)
+        {
+            GameObject.Destroy(gameObject);
         }
 
 
@@ -56,6 +57,7 @@ public class HealthModifier : MonoBehaviour
         }
         else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.GetComponent<AIBrain>())
         {
+           
             return true;
         }
 
