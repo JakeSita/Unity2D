@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using inventorySystem;
+//using inventorySystem;
 using UnityEngine;
 
 public class HealthModifier : MonoBehaviour
@@ -24,9 +24,9 @@ public class HealthModifier : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        Debug.Log("u hit something");
+        Debug.Log(collision.gameObject.tag);
         GameObject hitObj = collision.gameObject;
-        HealthSystem healthManager = hitObj.GetComponent<HealthSystem>();
+        HealthSystem healthManager = hitObj.GetComponentInChildren<HealthSystem>();
         if(healthManager && IsValidTarget(hitObj)){
             healthManager.adjustCurrentHealth(_healthChange);
 
@@ -51,13 +51,14 @@ public class HealthModifier : MonoBehaviour
         {
             return false;
         }
-        else if (_applyToTarget == DamageTarget.Player && possibleTarget.GetComponent<PlayerMovement>())
+        else if (_applyToTarget == DamageTarget.Player && possibleTarget.GetComponentInParent<PlayerMovement>())
         {
+            Debug.Log("you hit a player");
             return true;
         }
         else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.GetComponent<AIBrain>())
         {
-           
+            Debug.Log("you hit an enemy");
             return true;
         }
 

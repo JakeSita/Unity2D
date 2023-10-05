@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-namespace inventorySystem
-{
+using inventorySystem;
 
 
-    public class PlayerMovement : MonoBehaviour
+
+
+public class PlayerMovement : MonoBehaviour
     {
 
         [SerializeField] private float moveSpeed = 2f;
@@ -32,17 +32,6 @@ namespace inventorySystem
         private Shooting shot;
 
         bool canMove = true;
-
-        private bool IsSwung
-        {
-            get => Swing;
-
-            set
-            {
-                Swing = value;
-            }
-
-        }
 
 
         // Start is called before the first frame update
@@ -208,4 +197,3 @@ namespace inventorySystem
 
         
     }
-}

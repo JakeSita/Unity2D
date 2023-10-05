@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlipXMeleeHitBox : MonoBehaviour
 {
-    Collider2D boxCol;
+    BoxCollider2D boxCol;
 
     Animator anime;
     float Xmouse = 0f;
@@ -13,9 +13,9 @@ public class FlipXMeleeHitBox : MonoBehaviour
 
     private void Start()
     {
-        boxCol = GetComponent<Collider2D>();
+        
         anime = GetComponentInParent<Animator>();
-
+        boxCol = GetComponent<BoxCollider2D>();
         
     }
 
@@ -61,8 +61,6 @@ public class FlipXMeleeHitBox : MonoBehaviour
 
 
     public void StopAttack() { boxCol.enabled = false; }
-
-    
 
 
 
