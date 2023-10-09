@@ -41,7 +41,7 @@ public class ShootingDirections : MonoBehaviour
 
     public void AttackVertical() {
         Ymouse = anime.GetFloat("YMouse");
-        transform.localPosition = new Vector3(.14f, -.55f, 0);//set the begining edge of the staff
+        transform.localPosition = new Vector3(.14f, -.68f, 0);//set the begining edge of the staff
         if (Ymouse > 0)
         {
             // Rotate the object to the up

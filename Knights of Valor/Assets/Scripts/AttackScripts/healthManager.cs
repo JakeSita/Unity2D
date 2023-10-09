@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HealthSystem : MonoBehaviour
 {
-
-    private float _healthMax              = 10;
-    private float _healthCur              = 10;
+    public GameObject FloatingTextPrefab;
+    private GameObject floatingNumber;
+    public float _healthMax              = 10;
+    public float _healthCur              = 10;
     private float _invincibilityFrameMax  = 1;
     private float _invicibilityFramesCurr = 0;
     private bool _isdead                  = false;
 
+    private Rigidbody2D rb;
 
-     void Update()
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
     {
         if (_invicibilityFramesCurr > 0)
         {
@@ -22,8 +31,9 @@ public class HealthSystem : MonoBehaviour
             {
                 _invicibilityFramesCurr = 0;
             }
-
         }
+
+
         if (isDead())
         {
             Destroy(gameObject);
@@ -32,14 +42,28 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    public float adjustCurrentHealth(float change) {
+    public float adjustCurrentHealth(float change, Vector2 direction) {
         if (_invicibilityFramesCurr > 0)
             return _healthCur;
 
         _healthCur += change;
-        Debug.Log(_healthCur);
+        if (FloatingTextPrefab)
+        {
 
-        if(_healthCur <= .01f)
+            ShowFloatingText(change);
+        }
+        Debug.Log(_healthCur);
+        rb.isKinematic = false;
+
+        
+        rb.velocity = Vector2.zero;
+        rb.AddForce(direction, ForceMode2D.Impulse);
+        rb.drag = 20f;
+        StartCoroutine(EndKnockback(1));
+        
+
+
+        if (_healthCur <= .01f)
             onDeath();
         
         else if(_healthCur > _healthMax)
@@ -51,6 +75,29 @@ public class HealthSystem : MonoBehaviour
 
         return _healthCur;
         
+    }
+
+    private void ShowFloatingText(float change)
+    {
+        floatingNumber = Instantiate(FloatingTextPrefab, transform.localPosition, Quaternion.identity);
+        floatingNumber.transform.GetChild(0).GetComponent<TextMeshPro>().text = change.ToString();
+        StartCoroutine(deleteFloatingNumber());
+
+        
+    }
+
+    private IEnumerator EndKnockback(float knockbackDuration)
+    {
+        yield return new WaitForSeconds(knockbackDuration);
+
+        // Re-enable kinematic after knockback is complete
+        rb.isKinematic = true;
+    }
+    private IEnumerator deleteFloatingNumber()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(floatingNumber);
+
     }
 
     void onDeath()
@@ -73,4 +120,6 @@ public class HealthSystem : MonoBehaviour
         _invicibilityFramesCurr = 0;
     }
 
+
+    
 }

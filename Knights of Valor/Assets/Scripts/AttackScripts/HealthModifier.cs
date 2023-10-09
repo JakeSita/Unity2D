@@ -20,17 +20,27 @@ public class HealthModifier : MonoBehaviour
     [SerializeField]
     bool _destroyOnCollision = false;
 
+    private Rigidbody2D rb;
+
+    [SerializeField]
+    private float knockbackforce = 10f;
+
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        Debug.Log(collision.gameObject.tag);
+        Collider2D collider = collision.collider;
         GameObject hitObj = collision.gameObject;
-        HealthSystem healthManager = hitObj.GetComponentInChildren<HealthSystem>();
-        if(healthManager && IsValidTarget(hitObj)){
-            healthManager.adjustCurrentHealth(_healthChange);
+        
+        HealthSystem healthManager = hitObj.GetComponent<HealthSystem>();
+        Vector2 direction = (collider.transform.position - transform.position).normalized;
+        Vector2 knockback = direction * knockbackforce;
+        
+        if (healthManager && IsValidTarget(hitObj,collider))
+        {
+            healthManager.adjustCurrentHealth(_healthChange, knockback);
 
-            
         }
         if (_destroyOnCollision)
         {
@@ -41,7 +51,7 @@ public class HealthModifier : MonoBehaviour
     }
 
 
-    bool IsValidTarget(GameObject possibleTarget)
+    bool IsValidTarget(GameObject possibleTarget, Collider2D collider)
     {
         if(_applyToTarget == DamageTarget.All)
         {
@@ -51,14 +61,14 @@ public class HealthModifier : MonoBehaviour
         {
             return false;
         }
-        else if (_applyToTarget == DamageTarget.Player && possibleTarget.GetComponentInParent<PlayerMovement>())
+        else if (_applyToTarget == DamageTarget.Player &&  possibleTarget.tag == "Player" && collider.tag != "weapon")
         {
-            Debug.Log("you hit a player");
+            
             return true;
         }
-        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.GetComponent<AIBrain>())
+        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "enemy")
         {
-            Debug.Log("you hit an enemy");
+            
             return true;
         }
 
