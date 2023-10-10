@@ -55,13 +55,13 @@ public class HealthSystem : MonoBehaviour
             ShowFloatingText(_healthCur);
         }
         Debug.Log(_healthCur);
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
 
         
-        rb.velocity = Vector2.zero;
-        rb.AddForce(direction, ForceMode2D.Impulse);
-        rb.drag = 20f;
-        StartCoroutine(EndKnockback(1));
+        //rb.velocity = Vector2.zero;
+        //rb.AddForce(direction, ForceMode2D.Impulse);
+        //rb.drag = 20f;
+        //StartCoroutine(EndKnockback(1));
         
 
 
