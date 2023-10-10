@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OpenWorld.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/house_1.unity
+    guid: 04467026d48ebf94884a197a108fa5da
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b433cf01aecb14886a7c6edd9f5baf93, type: 2}
