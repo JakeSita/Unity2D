@@ -10,7 +10,9 @@ public class HealthSystem : MonoBehaviour
     private GameObject floatingNumber;
     public float _healthMax              = 10;
     public float _healthCur              = 10;
+    [SerializeField]
     private float _invincibilityFrameMax  = 1;
+    [SerializeField]
     private float _invicibilityFramesCurr = 0;
     private bool _isdead                  = false;
 
@@ -50,7 +52,7 @@ public class HealthSystem : MonoBehaviour
         if (FloatingTextPrefab)
         {
 
-            ShowFloatingText(change);
+            ShowFloatingText(_healthCur);
         }
         Debug.Log(_healthCur);
         rb.isKinematic = false;
@@ -92,6 +94,7 @@ public class HealthSystem : MonoBehaviour
 
         // Re-enable kinematic after knockback is complete
         rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
     }
     private IEnumerator deleteFloatingNumber()
     {
