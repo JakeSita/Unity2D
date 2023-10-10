@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         bool canMove = true;
 
+        public VectorValue startingPosition;
+
 
         // Start is called before the first frame update
         void Start()
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
-            
+            transform.position = startingPosition.initialValue;
            
 
         }
