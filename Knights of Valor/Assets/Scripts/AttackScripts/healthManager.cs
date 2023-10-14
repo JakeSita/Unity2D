@@ -55,14 +55,14 @@ public class HealthSystem : MonoBehaviour
             ShowFloatingText(_healthCur);
         }
         Debug.Log(_healthCur);
-        //rb.isKinematic = false;
+        rb.isKinematic = false;
 
-        
-        //rb.velocity = Vector2.zero;
-        //rb.AddForce(direction, ForceMode2D.Impulse);
-        //rb.drag = 20f;
-        //StartCoroutine(EndKnockback(1));
-        
+
+        rb.velocity = Vector2.zero;
+        rb.AddForce(direction, ForceMode2D.Impulse);
+        rb.drag = 20f;
+        StartCoroutine(EndKnockback(1));
+
 
 
         if (_healthCur <= .01f)
@@ -83,7 +83,6 @@ public class HealthSystem : MonoBehaviour
     {
         floatingNumber = Instantiate(FloatingTextPrefab, transform.localPosition, Quaternion.identity);
         floatingNumber.transform.GetChild(0).GetComponent<TextMeshPro>().text = change.ToString();
-        StartCoroutine(deleteFloatingNumber());
 
         
     }
@@ -96,12 +95,7 @@ public class HealthSystem : MonoBehaviour
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
     }
-    private IEnumerator deleteFloatingNumber()
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(floatingNumber);
-
-    }
+   
 
     void onDeath()
     {

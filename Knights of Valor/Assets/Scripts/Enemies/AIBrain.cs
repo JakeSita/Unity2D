@@ -18,7 +18,7 @@ public class AIBrain : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
 
-    bool reachedEndofPath = false;
+    
 
     Seeker seeker;
 
@@ -61,18 +61,7 @@ public class AIBrain : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null)
-            return;
-
-        if(currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndofPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndofPath = false;
-        }
+       
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (rb.position - offset)).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
