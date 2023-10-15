@@ -28,13 +28,23 @@ public class AIBrain2D : MonoBehaviour
 
     float Distance = 0;
 
-    public PlayerMovement _playerObject = null;
+    public GameObject bulletPrefab;
+    public Transform ShotPos;
+
+    private PlayerMovement _playerObject = null;
 
     Animator anime;
 
     public bool isFiring = false;
 
     NavMeshAgent agent;
+
+    private float timer;
+
+    [SerializeField]
+    private float TargetRange = 7f;
+    [SerializeField]
+    private float FireRate = 2f;
 
     #endregion
 
@@ -58,7 +68,8 @@ public class AIBrain2D : MonoBehaviour
         _curAIDirective.Invoke();
 
         //clock -= Time.deltaTime;
-        
+        timer += Time.deltaTime;
+
 
         if (Distance > CalcDistanceToPlayer())
             SetState_Default();
@@ -107,13 +118,23 @@ public class AIBrain2D : MonoBehaviour
         _pauseTimer = timeInMS;
     }
 
+    public void OutofRange()
+    {
+        if(CalcDistanceToPlayer() > TargetRange)
+        {
+            SetState_Default();
+        }
+    }
+
     public void UseWeapon()
     {
-        if(CalcDistanceToPlayer() < 10)
+        if (CalcDistanceToPlayer() < 8f && timer > FireRate)
         {
-            isFiring = true;
+            timer = 0;
+            var Bullet = Instantiate(bulletPrefab, ShotPos.position, Quaternion.identity);
+            Destroy(Bullet, 10f);
+
         }
-        isFiring = false;
    
     }
 

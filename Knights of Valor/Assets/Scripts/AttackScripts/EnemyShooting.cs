@@ -7,7 +7,7 @@ public class EnemyShooting : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
-    private  AIBrain2D Brain;
+    public  AIBrain2D Brain;
     public Transform ShotPos;
 
     private float timer;
@@ -15,19 +15,17 @@ public class EnemyShooting : MonoBehaviour
 
     
     // Start is called before the first frame update
-    void Start()
-    {
-        
-        Brain = GetComponentInParent<AIBrain2D>();
-    }
+   
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
 
+        Debug.Log("timer " + timer + "IsFiring" + Brain.isFiring);
         if (timer > 2 && Brain.isFiring)
         {
+            Debug.Log("this happens");
             timer = 0;
             Shooting();
         }

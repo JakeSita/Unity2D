@@ -52,7 +52,7 @@ public class HealthSystem : MonoBehaviour
         if (FloatingTextPrefab)
         {
 
-            ShowFloatingText(_healthCur);
+            ShowFloatingText(change);
         }
         Debug.Log(_healthCur);
         rb.isKinematic = false;
