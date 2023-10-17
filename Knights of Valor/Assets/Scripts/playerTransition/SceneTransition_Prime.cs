@@ -17,12 +17,13 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
  
-    public void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
-        {
-            playerStorage.initialValue = playerPosition;
-            SceneManager.LoadScene(sceneToLoad);
-        }
+        Debug.Log("hit collider");
+        // if (collion.CompareTag("Player"))
+        // {
+        //     playerStorage.initialValue = playerPosition;
+        //     SceneManager.LoadScene(sceneToLoad);
+        // }
     }
 }
