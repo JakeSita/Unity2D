@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();
-            transform.position = startingPosition.initialValue;
+//            transform.position = startingPosition.initialValue;
            
 
         }
