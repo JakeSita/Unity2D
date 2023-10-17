@@ -26,15 +26,21 @@ public class SwitchSceneOnCollision : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)  // Modified this line
+    private void OnTriggerEnter2D(Collider2D collision)  // Fixed the capitalization
     {
 
-
-        Debug.Log("OnTriggerEnter2D activated.");  // Updated the log message
-        if (collider.gameObject.GetComponent<PlayerMovement>())  
+        if(collision.CompareTag("Player")) 
         {
             _hasCollided = true;
             Debug.Log("Collision with PlayerMovement detected!");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)  // Fixed the capitalization
+    {
+        if(collision.CompareTag("Player"))
+        {
+            Debug.Log("Player has left range");
         }
     }
 }
