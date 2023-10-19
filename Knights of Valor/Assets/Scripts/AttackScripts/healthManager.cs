@@ -81,7 +81,7 @@ public class HealthSystem : MonoBehaviour
 
     private void ShowFloatingText(float change)
     {
-        floatingNumber = Instantiate(FloatingTextPrefab, transform.localPosition, Quaternion.identity);
+        floatingNumber = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity);
         floatingNumber.transform.GetChild(0).GetComponent<TextMeshPro>().text = change.ToString();
 
         

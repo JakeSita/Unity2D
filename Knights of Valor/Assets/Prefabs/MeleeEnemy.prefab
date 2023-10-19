@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d01698adb9549a288bbd5497cdec29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FloatingTextPrefab: {fileID: 1299570459423832607, guid: 30b32289b055d4ec4865666ae480ac6d, type: 3}
+  FloatingTextPrefab: {fileID: 3071725937916364389, guid: 00399bb97d2d1440784afd7ce2b6bad2, type: 3}
   _healthMax: 25
   _healthCur: 25
   _invincibilityFrameMax: 0.5
