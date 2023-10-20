@@ -29,10 +29,16 @@ namespace inventorySystem
 
         private InventorySlot _slot;
 
-
+        private PlayerMovement _player;
 
         private void Start()
         {
+
+            if (_inventory == null)
+            {
+                _player = FindAnyObjectByType<PlayerMovement>();
+                _inventory = _player.gameObject.GetComponent<Inventory>();
+            }
             AssignSlot(_inventorySlotIndex);
         }
 

@@ -11,11 +11,13 @@ namespace inventorySystem
     {
         private Inventory _inventory;
 
-        private Vector2 Movement;
+        //private Vector2 Movement;
 
 
         private void Awake()
         {
+
+            
             _inventory = GetComponent<Inventory>();
 
         }
@@ -23,6 +25,7 @@ namespace inventorySystem
 
         private void OnEnable()
         {
+            Debug.Log("Input handler enabled.");
             InputActions.Instance.Game.Throw.performed += OnThrow;
             InputActions.Instance.Game.Next.performed += OnNext;
             InputActions.Instance.Game.Previous.performed += OnPrevious;
@@ -32,6 +35,7 @@ namespace inventorySystem
 
         private void OnDisable()
         {
+            Debug.Log("Input handler disabled.");
             InputActions.Instance.Game.Throw.performed -= OnThrow;
             InputActions.Instance.Game.Next.performed -= OnNext;
             InputActions.Instance.Game.Previous.performed -= OnPrevious;

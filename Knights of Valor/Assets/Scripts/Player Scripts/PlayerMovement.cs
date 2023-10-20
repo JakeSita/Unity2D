@@ -35,10 +35,21 @@ public class PlayerMovement : MonoBehaviour
 
         public VectorValue startingPosition;
 
+        public static PlayerMovement Instance;
 
-        // Start is called before the first frame update
-        void Start()
+
+   
+
+
+    // Start is called before the first frame update
+    void Start()
         {
+            if(Instance != null){
+                Destroy(this.gameObject);
+                return;
+            }
+            Instance = this;
+            GameObject.DontDestroyOnLoad(this.gameObject);
             movementRb = GetComponent<Rigidbody2D>();
             WalkAnimation = GetComponent<Animator>();
             walkCol = GetComponent<BoxCollider2D>();

@@ -18,6 +18,17 @@ namespace inventorySystem.UI
 
         public Inventory Inventory => _inventory;
 
+        private PlayerMovement _player;
+
+
+        private void Awake()
+        {
+            if(_inventory == null) {
+                _player = FindAnyObjectByType<PlayerMovement>();
+                _inventory = _player.gameObject.GetComponent<Inventory>();
+            }
+        }
+
         [ContextMenu("Initialize Inventory")]
         private void IntializeInventoryUi()
         {
