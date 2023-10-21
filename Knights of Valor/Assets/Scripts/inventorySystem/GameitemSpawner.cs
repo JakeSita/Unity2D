@@ -16,10 +16,12 @@ namespace inventorySystem
         private Vector2 movementInput;
         private Animator anime;
         
+        
 
         private void Awake()
         {
             anime = GetComponent<Animator>();
+           
         }
 
 
@@ -28,6 +30,7 @@ namespace inventorySystem
             if (_itemBasePrefab == null) return;
 
             var item = PrefabUtility.InstantiatePrefab(_itemBasePrefab) as GameObject;
+           
             item.transform.position = transform.position;
 
             var GameItemScript = item.GetComponent<GameItem>();

@@ -44,6 +44,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3752252746032052177}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: TargetRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 2957809081822843908, guid: bee46c18fd26043cdbabff157bf5b49b, type: 3}
@@ -96,6 +100,10 @@ PrefabInstance:
       value: AIBrain2D, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: _defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -121,11 +129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2971162
+      value: -98.85682
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.039619
+      value: -238.01892
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.z
