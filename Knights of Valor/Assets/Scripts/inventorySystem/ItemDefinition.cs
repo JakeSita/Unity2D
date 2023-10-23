@@ -17,6 +17,11 @@ namespace inventorySystem
         [SerializeField]
         private Sprite    _uiSprite;
 
+        [SerializeField]
+        private float _damage = 0f;
+
+
+        public float Damage => _damage;
         public string Name => _name;
         public bool isStackable => _isStackable;
         public Sprite InGameSprite => _inGameSprite;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthModifier : MonoBehaviour
 {
     [SerializeField]
-    float _healthChange = 0;
+    public float _healthChange = 0f;
 
     public enum DamageTarget
     {
