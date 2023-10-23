@@ -16,4 +16,4 @@ MonoBehaviour:
   _isStackable: 0
   _inGameSprite: {fileID: -1816590352, guid: 8930360ec1fa343c58605181f8472cdd, type: 3}
   _uiSprite: {fileID: -1816590352, guid: 8930360ec1fa343c58605181f8472cdd, type: 3}
-  _damage: -5
+  _damage: -15
