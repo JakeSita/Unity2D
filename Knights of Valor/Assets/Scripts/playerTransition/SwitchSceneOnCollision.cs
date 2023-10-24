@@ -11,6 +11,9 @@ public class SwitchSceneOnCollision : MonoBehaviour
     [SerializeField, Tooltip("Seconds between collision and load.")]
     private float _transitionTime = 1f;
 
+    public float xPosition;
+    public float yPosition;
+
     private bool _hasCollided = false;
 
     void Update()
@@ -21,7 +24,9 @@ public class SwitchSceneOnCollision : MonoBehaviour
 
             if (_transitionTime <= 0f)
             {
-                SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
+                
+                SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);                
+                
             }
         }
     }
@@ -32,6 +37,7 @@ public class SwitchSceneOnCollision : MonoBehaviour
         if(collision.CompareTag("Player")) 
         {
             _hasCollided = true;
+            collision.transform.position = new Vector3(xPosition, yPosition);
             Debug.Log("Collision with PlayerMovement detected!");
         }
     }

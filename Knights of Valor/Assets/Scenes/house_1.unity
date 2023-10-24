@@ -8358,12 +8358,20 @@ PrefabInstance:
       value: SceneToHouse_1
       objectReference: {fileID: 0}
     - target: {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
+      propertyPath: xPosition
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
+      propertyPath: yPosition
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
       propertyPath: _sceneToLoad
       value: OpenWorld
       objectReference: {fileID: 0}
     - target: {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
       propertyPath: _transitionTime
-      value: 0.5
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7395420224146382699, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
       propertyPath: m_Size.x

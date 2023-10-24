@@ -33,8 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
         bool canMove = true;
 
-        public VectorValue startingPosition;
-
         public static PlayerMovement Instance;
 
 
