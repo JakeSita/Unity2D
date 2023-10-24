@@ -11,7 +11,9 @@ public class SwitchSceneOnCollision : MonoBehaviour
     [SerializeField, Tooltip("Seconds between collision and load.")]
     private float _transitionTime = 1f;
 
+    [SerializeField, Tooltip("X pos will spawn")]
     public float xPosition;
+    [SerializeField, Tooltip("Y pos will spawn")]
     public float yPosition;
 
     private bool _hasCollided = false;
