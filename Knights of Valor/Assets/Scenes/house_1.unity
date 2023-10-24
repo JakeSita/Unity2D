@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4696349867701869988, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_Name
-      value: SceneTransition
+      value: Mayors_SceneTransition
       objectReference: {fileID: 0}
     - target: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,7 +227,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3844455083424364029, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -254,8 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OpenWorld
   _transitionTime: 0.05
-  xPosition: 0
-  yPosition: 0
+  xPosition: 6
+  yPosition: 10
 --- !u!4 &175959086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
@@ -287,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4696349867701869988, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_Name
-      value: Cheifs_Transition
+      value: Old_Phoenix_Transition
       objectReference: {fileID: 0}
     - target: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -329,7 +330,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3844455083424364029, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -356,8 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OpenWorld
   _transitionTime: 0.05
-  xPosition: 0
-  yPosition: 0
+  xPosition: -10
+  yPosition: 9
 --- !u!4 &203702199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
@@ -458,8 +460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OpenWorld
   _transitionTime: 0.05
-  xPosition: 0
-  yPosition: 0
+  xPosition: 8.5
+  yPosition: -11.5
 --- !u!4 &332024820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
@@ -491,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4696349867701869988, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_Name
-      value: Sitas_house
+      value: Garys_house
       objectReference: {fileID: 0}
     - target: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -560,8 +562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OpenWorld
   _transitionTime: 0.05
-  xPosition: 0
-  yPosition: 0
+  xPosition: 5
+  yPosition: -4
 --- !u!4 &444266782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8517045739365709133, guid: b7628dc9d5cb3794689f5d371e354ebe, type: 3}
@@ -113599,7 +113601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558977057073743215, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
       propertyPath: m_Name
-      value: Garys_Transition
+      value: Players_Transition
       objectReference: {fileID: 0}
     - target: {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
       propertyPath: xPosition
@@ -113634,7 +113636,7 @@ PrefabInstance:
       value: -0.03623557
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 900879500093550519, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
+    - {fileID: 6757152987478556216, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -113661,8 +113663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: OpenWorld
   _transitionTime: 0.05
-  xPosition: 0
-  yPosition: 0
+  xPosition: -11
+  yPosition: -13
 --- !u!4 &2130476042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 55091517387030308, guid: 001a3d34724fd774287de659ccf0708e, type: 3}
