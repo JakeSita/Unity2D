@@ -23,7 +23,11 @@ public class AudioTransition : MonoBehaviour
                 audioSource.Play();
                 Debug.Log("Collision with Audio Source");
             }
+
+            if(previousAudioSource.isPlaying){
+                previousAudioSource.Stop(); 
+            }
         }
-    }
+    }   
 }
 
