@@ -140,7 +140,7 @@ namespace inventorySystem
                 throw new InventoryException(InventoryOperation.Remove, "Not Enough Items");
 
             itemSlot.NumberOfItems -= itemStack.NumberOfItems;
-            if(itemSlot.Item.isStackable && itemSlot.NumberOfItems > 0)
+            if (itemSlot.Item.isStackable && itemSlot.NumberOfItems > 0)
             {
                 return itemSlot.State;
             }
