@@ -27,6 +27,7 @@ public class AudioTransition : MonoBehaviour
             if(previousAudioSource.isPlaying){
                 previousAudioSource.Stop(); 
             }
+
         }
     }   
 }

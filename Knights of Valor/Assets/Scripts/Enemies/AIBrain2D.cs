@@ -39,6 +39,8 @@ public class AIBrain2D : MonoBehaviour
 
     NavMeshAgent agent;
 
+    private bool InRange;
+
     private float timer;
 
     [SerializeField]
@@ -122,8 +124,9 @@ public class AIBrain2D : MonoBehaviour
     {
         if(CalcDistanceToPlayer() > TargetRange)
         {
-            SetState_Default();
+            InRange = false;
         }
+        InRange = true;
     }
 
     public void UseWeapon()
@@ -184,7 +187,7 @@ public class AIBrain2D : MonoBehaviour
     {
         
 
-        if (agent)
+        if (agent && InRange)
         {
             agent.SetDestination(_playerObject.transform.position);
             anime.SetFloat("x", agent.velocity.x);

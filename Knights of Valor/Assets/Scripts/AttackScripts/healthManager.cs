@@ -18,13 +18,15 @@ public class HealthSystem : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private GameSessionManager GameManager;
+
     private Inventory _inventory;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
-
+        GameManager = GameObject.Find("GameManager").GetComponent<GameSessionManager>();
     }
 
     void Update()
@@ -49,6 +51,8 @@ public class HealthSystem : MonoBehaviour
             }
             if(gameObject.tag == "Player")
             {
+                rb.gameObject.GetComponent<PlayerMovement>().LockMovement();
+                GameManager.RespawnScreen(true);
             }
         }
         
