@@ -39,12 +39,11 @@ public class AIBrain2D : MonoBehaviour
 
     NavMeshAgent agent;
 
-    private bool InRange;
 
+    private int targetRange;
     private float timer;
 
-    [SerializeField]
-    private float TargetRange = 7f;
+    
     [SerializeField]
     private float FireRate = 2f;
 
@@ -120,13 +119,15 @@ public class AIBrain2D : MonoBehaviour
         _pauseTimer = timeInMS;
     }
 
-    public void OutofRange()
+    public void OutofRange(int TargetRange)
     {
+        targetRange = TargetRange;
         if(CalcDistanceToPlayer() > TargetRange)
         {
-            InRange = false;
+            agent.isStopped = true;
+            _defaultAction?.Invoke();
+            SetState_Default();
         }
-        InRange = true;
     }
 
     public void UseWeapon()
@@ -186,18 +187,22 @@ public class AIBrain2D : MonoBehaviour
     public void MoveTowardsPlayerUsingNavMesh()
     {
         
-
-        if (agent && InRange)
-        {
-            agent.SetDestination(_playerObject.transform.position);
-            anime.SetFloat("x", agent.velocity.x);
-            anime.SetFloat("y", agent.velocity.y);
-            anime.SetBool("IsRunning", true);
-            if (Distance > CalcDistanceToPlayer())
-                agent.isStopped = true;
-            else
+            if (agent)
+            {
                 agent.isStopped = false;
-        }
+                Debug.Log("i get here");
+                agent.SetDestination(_playerObject.transform.position);
+                anime.SetFloat("x", agent.velocity.x);
+                anime.SetFloat("y", agent.velocity.y);
+                anime.SetBool("IsRunning", true);
+                if (Distance > CalcDistanceToPlayer())
+                    agent.isStopped = true;
+                else
+                    agent.isStopped = false;
+            }
+        
+        
+        
     }
 
    
