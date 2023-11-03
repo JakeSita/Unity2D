@@ -12,13 +12,13 @@ using UnityEngine.UI;
         public GameObject Player;
 
 
-        //private void start()
-        //{
-        //    Player = GameObject.Find("Player");
-        //}
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+    }
 
 
-        public void ExitGame()
+    public void ExitGame()
         {
             RespawnScreen(false);
             //Application.Quit()

@@ -128,6 +128,10 @@ public class AIBrain2D : MonoBehaviour
             _defaultAction?.Invoke();
             SetState_Default();
         }
+        else
+        {
+            agent.isStopped = false;
+        }
     }
 
     public void UseWeapon()
@@ -189,16 +193,12 @@ public class AIBrain2D : MonoBehaviour
         
             if (agent)
             {
-                agent.isStopped = false;
                 Debug.Log("i get here");
                 agent.SetDestination(_playerObject.transform.position);
                 anime.SetFloat("x", agent.velocity.x);
                 anime.SetFloat("y", agent.velocity.y);
                 anime.SetBool("IsRunning", true);
-                if (Distance > CalcDistanceToPlayer())
-                    agent.isStopped = true;
-                else
-                    agent.isStopped = false;
+                
             }
         
         
