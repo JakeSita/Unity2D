@@ -47,6 +47,8 @@ public class AIBrain2D : MonoBehaviour
     [SerializeField]
     private float FireRate = 2f;
 
+    [SerializeField]
+    private GameObject bossHealth;
     #endregion
 
     // Start is called before the first frame update
@@ -204,6 +206,35 @@ public class AIBrain2D : MonoBehaviour
         
         
     }
+
+    public void MoveBossTowardsPlayer() {
+
+
+
+        if (agent) {
+            agent.SetDestination(_playerObject.transform.position);
+            anime.SetTrigger("Move");
+            if(CalcDistanceToPlayer() < 3)
+            {
+                anime.SetTrigger("Slam Attack");
+                agent.isStopped = true;
+            }
+
+        }
+
+
+    }
+
+    public void StartBossBattle()
+    {
+        bossHealth.SetActive(true);
+    }
+
+    public void EndBossBattle()
+    {
+        bossHealth.SetActive(false);
+    }
+
 
    
 

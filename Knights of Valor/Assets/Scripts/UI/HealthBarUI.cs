@@ -8,7 +8,7 @@ public class HealthBarUI : MonoBehaviour
 
     public Slider slider;
 
-    private  HealthSystem health;
+    public  HealthSystem health;
 
     private PlayerMovement _player;
 
@@ -16,8 +16,8 @@ public class HealthBarUI : MonoBehaviour
 
     public void Awake()
     {
-        _player = FindAnyObjectByType<PlayerMovement>();
-        health = _player.gameObject.GetComponent<HealthSystem>();
+        //_player = FindAnyObjectByType<PlayerMovement>();
+        //health = _player.gameObject.GetComponent<HealthSystem>();
         SetMaxHealth(health._healthMax);
     }
 

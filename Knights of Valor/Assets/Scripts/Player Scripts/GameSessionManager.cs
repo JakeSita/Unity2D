@@ -47,9 +47,9 @@ using UnityEngine.UI;
         }
 
 
-        public void setActiveRespawn(Transform respawn) {
-            Debug.Log("Active Respawn Point" + CurrentRespawn);
+        public void setActiveRespawn(Transform respawn) { 
             CurrentRespawn = respawn;
+            Debug.Log("Active Respawn Point " + CurrentRespawn);
         }
 
     }
