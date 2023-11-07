@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class CreatingLights : MonoBehaviour
 {
-    public float duration = 5f; // Duration should match that of the WorldLight for sync
+    public float duration = 10f; // Duration should match that of the WorldLight for sync
 
     [SerializeField] private Gradient colorGradient; // Use the same gradient for color change
     [SerializeField] private AnimationCurve intensityCurve; // Curve for light intensity
