@@ -7,37 +7,32 @@ public class attackDecision : StateMachineBehaviour
     NavMeshAgent ai;
     AIBrain2D brain;
     private int decision;
-    public GameObject Spawner;
-    private Transform BossShoot;
-    private int counter = 0;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ai = animator.GetComponent<NavMeshAgent>();
         brain = animator.GetComponent<AIBrain2D>();
-        BossShoot = animator.GetComponentInChildren<Transform>();
 
         animator.ResetTrigger("Move");
         animator.ResetTrigger("Slam Attack");
         animator.ResetTrigger("Idle");
+        animator.ResetTrigger("Spawn");
+        animator.ResetTrigger("Shoot");
         ai.isStopped = true;
-        decision = Random.Range(0, 3);
-        Debug.Log(decision);
-
+        decision = Random.Range(0, 4);
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+
         if (brain.hunt)
         {
             switch (decision)
             {
 
                 case 0:
-                    animator.ResetTrigger("Move");
                     animator.SetTrigger("Slam Attack");
                     break;
 
@@ -47,13 +42,11 @@ public class attackDecision : StateMachineBehaviour
                     break;
 
                 case 2:
-                    counter++;
-                    if (counter == 1)
-                    {
-                        Debug.Log("Spawning one enemy");
-                        Instantiate(Spawner, BossShoot.position, Quaternion.identity);
-                        counter = 0;
-                    }
+                    animator.SetTrigger("Spawn");
+                    break;
+
+                case 3:
+                    animator.SetTrigger("Shoot");
                     break;
 
 
@@ -66,6 +59,7 @@ public class attackDecision : StateMachineBehaviour
             }
         }
     }
+
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

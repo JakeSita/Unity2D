@@ -162,7 +162,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 15
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -257,6 +257,8 @@ MonoBehaviour:
   ShotPos: {fileID: 0}
   isFiring: 0
   FireRate: 2
+  bossHealth: {fileID: 0}
+  hunt: 0
 --- !u!195 &8841575165237114397
 NavMeshAgent:
   m_ObjectHideFlags: 0

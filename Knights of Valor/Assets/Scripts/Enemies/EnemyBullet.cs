@@ -7,7 +7,7 @@ public class EnemyBullet : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     [SerializeField]
-    private float force = 5f;
+    public float force = 5f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
