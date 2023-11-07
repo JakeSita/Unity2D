@@ -49,6 +49,8 @@ public class AIBrain2D : MonoBehaviour
 
     [SerializeField]
     private GameObject bossHealth;
+
+    public bool hunt = false;
     #endregion
 
     // Start is called before the first frame update
@@ -127,6 +129,7 @@ public class AIBrain2D : MonoBehaviour
         if(CalcDistanceToPlayer() > TargetRange)
         {
             agent.isStopped = true;
+            hunt = false;
             _defaultAction?.Invoke();
             SetState_Default();
         }
@@ -212,14 +215,9 @@ public class AIBrain2D : MonoBehaviour
 
 
         if (agent) {
+            hunt = true;
             agent.SetDestination(_playerObject.transform.position);
-            anime.SetTrigger("Move");
-            if(CalcDistanceToPlayer() < 3)
-            {
-                anime.SetTrigger("Slam Attack");
-                agent.isStopped = true;
-            }
-
+            agent.isStopped = true;
         }
 
 

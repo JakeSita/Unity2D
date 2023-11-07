@@ -26,7 +26,8 @@ public class HealthSystem : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _inventory = GetComponent<Inventory>();
-        GameManager = GameObject.Find("GameManager").GetComponent<GameSessionManager>();
+        if(tag == "Player")
+            GameManager = GameObject.Find("GameManager").GetComponent<GameSessionManager>();
     }
 
     void Update()

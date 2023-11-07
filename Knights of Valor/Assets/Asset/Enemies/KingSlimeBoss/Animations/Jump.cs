@@ -20,6 +20,7 @@ public class Jump : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetTrigger("IsJump");
+        animator.ResetTrigger("Jump");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

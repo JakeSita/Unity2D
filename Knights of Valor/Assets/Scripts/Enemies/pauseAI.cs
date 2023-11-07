@@ -1,23 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class pauseAI : StateMachineBehaviour
 {
 
-    public float timer = 2f;
+    private float timer = 0f;
+    public float clock = 5f;
+    private NavMeshAgent agent1;
+    private HealthSystem hp;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        agent1 = animator.GetComponent<NavMeshAgent>();
+        hp = animator.GetComponent<HealthSystem>();
+
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(timer > Time.deltaTime)
+        timer += Time.deltaTime;
+        agent1.isStopped = true;
+        hp.enabled = false;
+        if(timer > clock)
         {
+            agent1.isStopped = false;
             animator.SetTrigger("Jump");
+            timer = 0;
         }
     }
 
