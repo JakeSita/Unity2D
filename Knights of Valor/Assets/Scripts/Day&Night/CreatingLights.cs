@@ -19,20 +19,22 @@ public class CreatingLights : MonoBehaviour
         _startTime = Time.time;
     }
 
-    private void Update()
-    {
-        float timeElapsed = Time.time - _startTime;
-        float percentage = Mathf.Sin(timeElapsed / duration * Mathf.PI * 2) * 0.5f + 0.5f;
-        percentage = Mathf.Clamp01(percentage);
+private void Update()
+{
+    float timeElapsed = Time.time - _startTime;
+    
+    // This will now start from 1 and go towards 0 in the first half of the sine wave
+    float percentage = 1 - (Mathf.Sin(timeElapsed / duration * Mathf.PI * 2) * 0.5f + 0.5f);
+    percentage = Mathf.Clamp01(percentage);
 
-        // Match the light's color to the WorldLight script
-        _light2D.color = colorGradient.Evaluate(percentage);
+    // Match the light's color to the WorldLight script
+    _light2D.color = colorGradient.Evaluate(percentage);
 
-        // Adjust the light's intensity based on the curve and the same percentage
-        _light2D.intensity = intensityCurve.Evaluate(percentage);
+    // Adjust the light's intensity based on the curve and the same percentage
+    _light2D.intensity = intensityCurve.Evaluate(percentage);
 
-        // Toggle the light on and off based on the percentage
-        // When the sin wave is at its lowest, the light is off. When it's higher, the light is on.
-        _light2D.enabled = percentage > 0.1f; // This threshold can be adjusted
-    }
+    // Assuming you want the light to be enabled when the percentage is below 0.9 (reversed logic)
+    _light2D.enabled = percentage < 0.9f; // Adjust the threshold as necessary
+}
+
 }
