@@ -39,13 +39,18 @@ public class AIBrain2D : MonoBehaviour
 
     NavMeshAgent agent;
 
+
+    private int targetRange;
     private float timer;
 
-    [SerializeField]
-    private float TargetRange = 7f;
+    
     [SerializeField]
     private float FireRate = 2f;
 
+    [SerializeField]
+    private GameObject bossHealth;
+
+    public bool hunt = false;
     #endregion
 
     // Start is called before the first frame update
@@ -118,11 +123,19 @@ public class AIBrain2D : MonoBehaviour
         _pauseTimer = timeInMS;
     }
 
-    public void OutofRange()
+    public void OutofRange(int TargetRange)
     {
+        targetRange = TargetRange;
         if(CalcDistanceToPlayer() > TargetRange)
         {
+            agent.isStopped = true;
+            hunt = false;
+            _defaultAction?.Invoke();
             SetState_Default();
+        }
+        else
+        {
+            agent.isStopped = false;
         }
     }
 
@@ -183,19 +196,43 @@ public class AIBrain2D : MonoBehaviour
     public void MoveTowardsPlayerUsingNavMesh()
     {
         
-
-        if (agent)
-        {
-            agent.SetDestination(_playerObject.transform.position);
-            anime.SetFloat("x", agent.velocity.x);
-            anime.SetFloat("y", agent.velocity.y);
-            anime.SetBool("IsRunning", true);
-            if (Distance > CalcDistanceToPlayer())
-                agent.isStopped = true;
-            else
-                agent.isStopped = false;
-        }
+            if (agent)
+            {
+                Debug.Log("i get here");
+                agent.SetDestination(_playerObject.transform.position);
+                anime.SetFloat("x", agent.velocity.x);
+                anime.SetFloat("y", agent.velocity.y);
+                anime.SetBool("IsRunning", true);
+                
+            }
+        
+        
+        
     }
+
+    public void MoveBossTowardsPlayer() {
+
+
+
+        if (agent) {
+            hunt = true;
+            agent.SetDestination(_playerObject.transform.position);
+            agent.isStopped = true;
+        }
+
+
+    }
+
+    public void StartBossBattle()
+    {
+        bossHealth.SetActive(true);
+    }
+
+    public void EndBossBattle()
+    {
+        bossHealth.SetActive(false);
+    }
+
 
    
 

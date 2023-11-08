@@ -20,7 +20,8 @@ namespace inventorySystem
 
         private void Awake()
         {
-            anime = GetComponent<Animator>();
+            if(gameObject.tag == "Player")
+                anime = GetComponent<Animator>();
            
         }
 
@@ -37,7 +38,8 @@ namespace inventorySystem
 
             GameItemScript.SetStack(new ItemStack(itemstack.Item, itemstack.NumberOfItems));
 
-            GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
+            if(gameObject.tag == "Player")
+                GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
             
         }
 

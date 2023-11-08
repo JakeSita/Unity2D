@@ -56,6 +56,11 @@ namespace inventorySystem
 
         private void UpdateViewState(ItemStack state, bool active)
         {
+            if (_activeIndicator == null || _itemIcon == null || _numberOfItems == null)
+            {
+                // Check if any of the UI elements is null and return to avoid errors.
+                return;
+            }
             _activeIndicator.enabled = active;
             var item = state?.Item;
             var hasItem = item != null;

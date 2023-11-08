@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2406776196020842631}
   - component: {fileID: 1247333711652935966}
   - component: {fileID: 8841575165237114397}
+  - component: {fileID: 6817862319835197985}
+  - component: {fileID: 1636512580703209686}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: enemy
@@ -86,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344aba92e430448b6a6e436c068c77e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthChange: -25
+  _healthChange: -5
   _applyToTarget: 0
   _destroyOnCollision: 0
   knockbackforce: 10
@@ -160,7 +162,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 15
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -233,11 +235,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
         m_MethodName: OutofRange
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -254,8 +256,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   ShotPos: {fileID: 0}
   isFiring: 0
-  TargetRange: 15
   FireRate: 2
+  bossHealth: {fileID: 0}
+  hunt: 0
 --- !u!195 &8841575165237114397
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -278,6 +281,57 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 3
+--- !u!114 &6817862319835197985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533226127775294938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9202c13f8e329480bab4ebe5f8893c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 8
+  _slots:
+  - _state:
+      _item: {fileID: 11400000, guid: 4a18ea1419f9f44ed9a6937a8b31a2c2, type: 2}
+      _numberOfItems: 1
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+  - _state:
+      _item: {fileID: 0}
+      _numberOfItems: 0
+--- !u!114 &1636512580703209686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533226127775294938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430cd3a842d7646b29e37910f6d5abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemBasePrefab: {fileID: 6927003295072061409, guid: cdbe5b453e9604a7b83748a33f84e935, type: 3}
 --- !u!1 &4032794512871041686
 GameObject:
   m_ObjectHideFlags: 0

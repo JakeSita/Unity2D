@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using inventorySystem;
 public class HealthSystem : MonoBehaviour
 {
     public GameObject FloatingTextPrefab;
@@ -18,9 +18,16 @@ public class HealthSystem : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private GameSessionManager GameManager;
+
+    private Inventory _inventory;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _inventory = GetComponent<Inventory>();
+        if(tag == "Player")
+            GameManager = GameObject.Find("GameManager").GetComponent<GameSessionManager>();
     }
 
     void Update()
@@ -38,7 +45,16 @@ public class HealthSystem : MonoBehaviour
 
         if (isDead())
         {
-            Destroy(gameObject);
+            if(gameObject.tag == "enemy")
+            {
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
+                Destroy(gameObject);
+            }
+            if(gameObject.tag == "Player")
+            {
+                rb.gameObject.GetComponent<PlayerMovement>().LockMovement();
+                GameManager.RespawnScreen(true);
+            }
         }
         
     }

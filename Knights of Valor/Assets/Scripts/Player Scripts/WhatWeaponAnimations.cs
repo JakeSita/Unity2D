@@ -83,9 +83,16 @@ public class WhatWeaponAnimations : MonoBehaviour
 
     void OnFire()
     {
-        if(health == true) {
+        if(health == true) { 
             PlayerHealth._healthCur += 25;
-            _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
+           if(_inventory.GetActiveSlot().NumberOfItems <= 1)
+            {
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
+            }
+            else
+            {
+                _inventory.GetActiveSlot().NumberOfItems--;
+            }
         }
 
 

@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -85,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: MoveTowardsPlayerUsingNavMesh
+      value: OutofRange
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: OutofRange
+      value: MoveTowardsPlayerUsingNavMesh
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -98,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: AIBrain2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: _huntAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1247333711652935966, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
@@ -129,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -98.85682
+      value: -108.75076
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -238.01892
+      value: -230.39674
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.z
