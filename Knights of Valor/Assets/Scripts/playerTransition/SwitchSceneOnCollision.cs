@@ -48,8 +48,7 @@ public class SwitchSceneOnCollision : MonoBehaviour
         // Wait for the specified transition time
         yield return new WaitForSeconds(_transitionTime);
         
-        // Load the scene after the fade-in is complete and transition time has passed
-        SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

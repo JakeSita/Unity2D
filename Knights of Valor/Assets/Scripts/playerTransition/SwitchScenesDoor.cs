@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScenesDoor : MonoBehaviour
 {
+    
+    FadeIn fade;
     public bool playerInRange;
     private Transform playerTransform; // A reference to the player's transform
 
@@ -18,6 +20,13 @@ public class SwitchScenesDoor : MonoBehaviour
     public float xPosition;
     [SerializeField, Tooltip("Y pos will spawn")]
     public float yPosition;
+
+
+    void Start()
+    {
+        fade = FindObjectOfType<FadeIn>();
+    }
+
 
     void Update()
     {
@@ -38,11 +47,24 @@ public class SwitchScenesDoor : MonoBehaviour
                     playerTransform.position = new Vector3(xPosition, yPosition);
                 }
 
+                StartCoroutine(SwitchSceneAfterFade());
                 SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
                 _startCountdown = false;  // Stop the countdown
             }
         }
     }
+
+        private IEnumerator SwitchSceneAfterFade()
+    {
+        // Start the fade-in process
+        fade.StartFadeIn(); // Assuming you corrected the FadeIn script as previously discussed
+        
+        // Wait for the specified transition time
+        yield return new WaitForSeconds(_transitionTime);
+        
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

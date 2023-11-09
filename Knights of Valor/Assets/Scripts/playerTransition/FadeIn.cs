@@ -13,7 +13,7 @@ public class FadeIn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFadingIn)
+        if (isFadingIn == true)
         {
             if (canvasGroup.alpha < 1)
             {
@@ -26,9 +26,9 @@ public class FadeIn : MonoBehaviour
             }
         }
 
-        if (isFadingOut)
+        if (isFadingOut == true)
         {
-            if (canvasGroup.alpha > 0)
+            if (canvasGroup.alpha >= 0)
             {
                 canvasGroup.alpha -= timeToFade * Time.deltaTime;
                 if (canvasGroup.alpha <= 0)
@@ -44,12 +44,12 @@ public class FadeIn : MonoBehaviour
     public void StartFadeIn()
     {
         isFadingIn = true;
-        isFadingOut = false; // Stop fading out if it is in progress
+        //isFadingOut = false; 
     }
 
     public void StartFadeOut()
     {
         isFadingOut = true;
-        isFadingIn = false; // Stop fading in if it is in progress
+        //isFadingIn = false;
     }
 }
