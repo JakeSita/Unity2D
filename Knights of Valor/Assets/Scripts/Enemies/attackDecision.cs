@@ -7,6 +7,7 @@ public class attackDecision : StateMachineBehaviour
     NavMeshAgent ai;
     AIBrain2D brain;
     private int decision;
+    private float timer = 2f;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -22,41 +23,45 @@ public class attackDecision : StateMachineBehaviour
         animator.ResetTrigger("Shoot");
         ai.isStopped = true;
         decision = Random.Range(0, 4);
+       
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-
-        if (brain.hunt)
+        timer -= Time.deltaTime;
+        if (timer < 0)
         {
-            switch (decision)
+            timer = 2f;
+            if (brain.hunt)
             {
+                switch (decision)
+                {
 
-                case 0:
-                    animator.SetTrigger("Slam Attack");
-                    break;
+                    case 0:
+                        animator.SetTrigger("Slam Attack");
+                        break;
 
-                case 1:
-                    ai.isStopped = false;
-                    animator.SetTrigger("Move");
-                    break;
+                    case 1:
+                        ai.isStopped = false;
+                        animator.SetTrigger("Move");
+                        break;
 
-                case 2:
-                    animator.SetTrigger("Spawn");
-                    break;
+                    case 2:
+                        animator.SetTrigger("Spawn");
+                        break;
 
-                case 3:
-                    animator.SetTrigger("Shoot");
-                    break;
-
-
-                default:
-                    decision = Random.Range(0, 3);
-                    break;
+                    case 3:
+                        animator.SetTrigger("Shoot");
+                        break;
 
 
+                    default:
+                        decision = Random.Range(0, 3);
+                        break;
 
+
+
+                }
             }
         }
     }

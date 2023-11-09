@@ -13,7 +13,7 @@ public class Spawn : StateMachineBehaviour
     {
         Spawner = animator.GetComponentInChildren<Transform>();
         Instantiate(Spawnable, Spawner.position, Quaternion.identity);
-        animator.SetTrigger("Idle");
+        animator.SetTrigger("Move");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

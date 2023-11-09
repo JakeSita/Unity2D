@@ -14,6 +14,7 @@ public class WhatWeaponAnimations : MonoBehaviour
     private HealthModifier damageModifier;
 
     private bool health = false;
+    private bool Speed = false;
 
 
     void Start()
@@ -42,12 +43,30 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("projectile Weapon", false);
                     damageModifier._healthChange = _inventory.GetActiveSlot().Item.Damage;
                     health = false;
+                    Speed = false;
+                    break;
+
+                case "Silver Weapon":
+                    anime.SetBool("Melee Weapon", true);
+                    anime.SetBool("projectile Weapon", false);
+                    damageModifier._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    health = false;
+                    Speed = false;
                     break;
 
                 case "Projectile Weapon":
                     anime.SetBool("projectile Weapon", true);
                     anime.SetBool("Melee Weapon", false);
                     health = false;
+                    Speed = false;
+                    break;
+
+
+                case "Silver Projectile":
+                    anime.SetBool("projectile Weapon", true);
+                    anime.SetBool("Melee Weapon", false);
+                    health = false;
+                    Speed = false;
                     break;
 
 
@@ -55,18 +74,21 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("Melee Weapon", false);
                     anime.SetBool("projectile Weapon", false);
                     health = true;
+                    Speed = false;
                     break;
 
-                case "SpeedPotion":
+                case "Speed Potion":
                     anime.SetBool("Melee Weapon", false);
                     anime.SetBool("projectile Weapon", false);
                     health = false;
+                    Speed = true;
                     break;
 
                 default:
                     anime.SetBool("Melee Weapon", false);
                     anime.SetBool("projectile Weapon", false);
                     health = false;
+                    Speed = false;
                     break;
             }
 
@@ -77,6 +99,7 @@ public class WhatWeaponAnimations : MonoBehaviour
             anime.SetBool("Melee Weapon", false);
             anime.SetBool("projectile Weapon", false);
             health = false;
+            Speed = false;
         }
     }
 
@@ -86,6 +109,19 @@ public class WhatWeaponAnimations : MonoBehaviour
         if(health == true) { 
             PlayerHealth._healthCur += 25;
            if(_inventory.GetActiveSlot().NumberOfItems <= 1)
+            {
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
+            }
+            else
+            {
+                _inventory.GetActiveSlot().NumberOfItems--;
+            }
+        }
+
+        if(Speed)
+        {
+            GetComponent<PlayerMovement>().moveSpeed += 2;
+            if (_inventory.GetActiveSlot().NumberOfItems <= 1)
             {
                 _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
             }

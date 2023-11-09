@@ -10,7 +10,7 @@ using inventorySystem;
 public class PlayerMovement : MonoBehaviour
     {
 
-        [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] public  float moveSpeed = 2f;
         [SerializeField] private float collisionOffset = .05f;
         public ContactFilter2D movementFilter;
         public List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
