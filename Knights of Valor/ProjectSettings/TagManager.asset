@@ -48,3 +48,6 @@ TagManager:
   - name: Player layer
     uniqueID: 2926887219
     locked: 0
+  - name: Enemy
+    uniqueID: 1927754097
+    locked: 0

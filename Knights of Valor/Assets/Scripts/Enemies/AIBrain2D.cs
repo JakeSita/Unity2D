@@ -176,7 +176,14 @@ public class AIBrain2D : MonoBehaviour
 
     public void LookAtPlayer()
     {
-        
+        if((transform.position.x - CalcPlayerPos().x) > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     public void MoveTowardsPlayer(float Speed)
