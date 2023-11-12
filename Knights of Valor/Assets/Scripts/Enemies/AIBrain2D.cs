@@ -59,7 +59,7 @@ public class AIBrain2D : MonoBehaviour
         _playerObject = FindObjectOfType<PlayerMovement>();
         _curAIDirective = _defaultAction;
         anime = GetComponentInChildren<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        TryGetComponent<NavMeshAgent>(out NavMeshAgent agent);
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -198,7 +198,6 @@ public class AIBrain2D : MonoBehaviour
         
             if (agent)
             {
-                Debug.Log("i get here");
                 agent.SetDestination(_playerObject.transform.position);
                 anime.SetFloat("x", agent.velocity.x);
                 anime.SetFloat("y", agent.velocity.y);
