@@ -11,7 +11,7 @@ public class WhatWeaponAnimations : MonoBehaviour
 
     private HealthSystem PlayerHealth;
 
-    private HealthModifier damageModifier;
+    private HealthModifier[] damageModifier;
 
     private bool health = false;
     private bool Speed = false;
@@ -22,7 +22,8 @@ public class WhatWeaponAnimations : MonoBehaviour
         anime = GetComponent<Animator>();
         _inventory = GetComponent<Inventory>();
         PlayerHealth = GetComponent<HealthSystem>();
-        damageModifier = GetComponentInChildren<HealthModifier>();
+        //damageModifier = GetComponentInChildren<HealthModifier>();
+        damageModifier = GetComponentsInChildren<HealthModifier>();
 
     }
 
@@ -41,7 +42,8 @@ public class WhatWeaponAnimations : MonoBehaviour
                 case "Melee Weapon":
                     anime.SetBool("Melee Weapon", true);
                     anime.SetBool("projectile Weapon", false);
-                    damageModifier._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    foreach(HealthModifier x in damageModifier)
+                        x._healthChange = _inventory.GetActiveSlot().Item.Damage;
                     health = false;
                     Speed = false;
                     break;
@@ -49,7 +51,8 @@ public class WhatWeaponAnimations : MonoBehaviour
                 case "Silver Weapon":
                     anime.SetBool("Melee Weapon", true);
                     anime.SetBool("projectile Weapon", false);
-                    damageModifier._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    foreach (HealthModifier x in damageModifier)
+                        x._healthChange = _inventory.GetActiveSlot().Item.Damage;
                     health = false;
                     Speed = false;
                     break;
