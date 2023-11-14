@@ -60,7 +60,7 @@ public class HealthSystem : MonoBehaviour
     }
 
 
-    public float adjustCurrentHealth(float change, Vector2 direction) {
+    public float adjustCurrentHealth(float change, Vector2 direction, bool knockback) {
         if (_invicibilityFramesCurr > 0)
             return _healthCur;
 
@@ -71,13 +71,16 @@ public class HealthSystem : MonoBehaviour
             ShowFloatingText(change);
         }
         Debug.Log(_healthCur);
-        rb.isKinematic = false;
+        if (knockback)
+        {
+            rb.isKinematic = false;
 
 
-        rb.velocity = Vector2.zero;
-        rb.AddForce(direction, ForceMode2D.Impulse);
-        rb.drag = 20f;
-        StartCoroutine(EndKnockback(1));
+            rb.velocity = Vector2.zero;
+            rb.AddForce(direction, ForceMode2D.Impulse);
+            rb.drag = 20f;
+            StartCoroutine(EndKnockback(1));
+        }
 
 
 

@@ -23,6 +23,9 @@ public class HealthModifier : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
+    private bool knockBack = true;
+
+    [SerializeField]
     private float knockbackforce = 10f;
 
 
@@ -39,7 +42,7 @@ public class HealthModifier : MonoBehaviour
         
         if (healthManager && IsValidTarget(hitObj,collider))
         {
-            healthManager.adjustCurrentHealth(_healthChange, knockback);
+            healthManager.adjustCurrentHealth(_healthChange, knockback, knockBack);
 
         }
         if (_destroyOnCollision)
