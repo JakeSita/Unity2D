@@ -16,7 +16,7 @@ public class Multiple_Text : MonoBehaviour
     private List<string> dialogues = new List<string>();
 
     private int currentDialogueIndex = 0;
-    public bool playerInRange;
+    public bool playerInRange;  
 
     // Start is called before the first frame update
     void Start()
