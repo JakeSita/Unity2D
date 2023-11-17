@@ -45,9 +45,16 @@ public class HealthSystem : MonoBehaviour
 
         if (isDead())
         {
+            if(gameObject.tag == "Pillar")
+            {
+                gameObject.SetActive(false);
+            }
             if(gameObject.tag == "enemy")
             {
-                _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
+                if (_inventory.GetActiveSlot().HasItem)
+                {
+                    _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
+                }
                 Destroy(gameObject);
             }
             if(gameObject.tag == "Player")
@@ -71,7 +78,7 @@ public class HealthSystem : MonoBehaviour
             ShowFloatingText(change);
         }
         Debug.Log(_healthCur);
-        if (knockback)
+        if (knockback && this.gameObject.tag != "Pillar") 
         {
             rb.isKinematic = false;
 

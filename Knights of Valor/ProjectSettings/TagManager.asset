@@ -8,6 +8,7 @@ TagManager:
   - weapon
   - WorldUI
   - GameOverUI
+  - Pillar
   layers:
   - Default
   - TransparentFX

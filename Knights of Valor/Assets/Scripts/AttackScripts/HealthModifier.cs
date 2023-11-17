@@ -73,6 +73,9 @@ public class HealthModifier : MonoBehaviour
         {
             
             return true;
+        }else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "Pillar")
+        {
+            return true;
         }
 
         return false;

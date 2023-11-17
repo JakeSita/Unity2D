@@ -19,7 +19,7 @@ public class RotateLaser : MonoBehaviour
     {
         boss = GetComponentInParent<SpriteRenderer>();
         anime = GetComponentInChildren<Animator>();
-        //ai = GetComponentInParent<AIBrain2D>();
+        ai = GetComponentInParent<AIBrain2D>();
        
     }
     void Update() {
@@ -33,13 +33,14 @@ public class RotateLaser : MonoBehaviour
             transform.position = new Vector3(transform.position.x + .3f, transform.position.y, transform.position.z);
             count--;
         }
-        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-        if(timer > 4f)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            timer = 0;
-            anime.SetTrigger("Fire");
-            laser.SetActive(false);
-        }
+        float angle = Mathf.Atan2(ai.CalcPlayerPos().y - transform.position.y, ai.CalcPlayerPos().x - transform.position.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        //if (timer > 4f)
+        //{
+        //    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        //    timer = 0;
+        //    anime.SetTrigger("Fire");
+        //    laser.SetActive(false);
+        //}
     }
 }
