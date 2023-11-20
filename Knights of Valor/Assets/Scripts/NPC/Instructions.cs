@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;  // Import the TextMeshPro namespace
 
-public class  instructions: MonoBehaviour
+public class MultipleTextAndImages : MonoBehaviour
 {
     [SerializeField, Tooltip("Name Of DialogBox")]
     private GameObject dialogBox;
@@ -12,24 +12,17 @@ public class  instructions: MonoBehaviour
     [SerializeField, Tooltip("Name Of TMP Text")]
     private TextMeshProUGUI dialogText;
 
-    [SerializeField, Tooltip("Image to display with the dialogue")]
-    private Image dialogueImage;  // Reference to the Image component
+    [SerializeField, Tooltip("List of dialogues")]
+    private List<string> dialogues = new List<string>();
 
-    [SerializeField, Tooltip("Atlas Picture to display")]
-    private Sprite atlasPicture;  // The picture to display
+    [SerializeField, Tooltip("List of Images to display with the dialogue")]
+    private List<Sprite> dialogueImages;  // List of Sprites for dialogue
 
-    public string dialog;
+    private int currentDialogueIndex = 0;
+    public bool playerInRange;  
 
-    public bool playerInRange;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(dialogueImage != null)
-        {
-            dialogueImage.gameObject.SetActive(false);  // Initially hide the image
-        }
-    }
+    [SerializeField, Tooltip("Image Component to display dialogue images")]
+    private Image dialogueImageComponent;  // Reference to the Image component
 
     // Update is called once per frame
     void Update()
@@ -38,23 +31,40 @@ public class  instructions: MonoBehaviour
         {
             if(dialogBox.activeInHierarchy)
             {
-                dialogBox.SetActive(false);
-                if(dialogueImage != null)
+                currentDialogueIndex++;
+                if (currentDialogueIndex >= dialogues.Count) // Check if we've reached the end of the dialogues
                 {
-                    dialogueImage.gameObject.SetActive(false);  // Hide the image
+                    dialogBox.SetActive(false);
+                    currentDialogueIndex = 0; // Reset to first dialogue for next interaction
+                    if(dialogueImageComponent != null)
+                    {
+                        dialogueImageComponent.gameObject.SetActive(false);  // Hide the image
+                    }
+                }
+                else
+                {
+                    UpdateDialogueAndImage();
                 }
             }
             else 
             {
                 dialogBox.SetActive(true);
-                dialogText.text = dialog; // Set the dialogue text
-
-                if(dialogueImage != null)
-                {
-                    dialogueImage.sprite = atlasPicture;  // Set the image sprite
-                    dialogueImage.gameObject.SetActive(true);  // Show the image
-                }
+                currentDialogueIndex = 0; // Start from the first dialogue
+                UpdateDialogueAndImage();
             }
+        }
+    }
+
+    private void UpdateDialogueAndImage()
+    {
+        if (dialogues.Count > 0)
+        {
+            dialogText.text = dialogues[currentDialogueIndex]; // Set the text to the current dialogue
+        }
+        if(dialogueImages.Count > currentDialogueIndex)
+        {
+            dialogueImageComponent.sprite = dialogueImages[currentDialogueIndex]; // Set the image
+            dialogueImageComponent.gameObject.SetActive(true);  // Show the image
         }
     }
 
@@ -74,9 +84,9 @@ public class  instructions: MonoBehaviour
             Debug.Log("Player has left range");
             playerInRange = false;
             dialogBox.SetActive(false);
-            if(dialogueImage != null)
+            if(dialogueImageComponent != null)
             {
-                dialogueImage.gameObject.SetActive(false);  // Hide the image
+                dialogueImageComponent.gameObject.SetActive(false);  // Hide the image
             }
         }
     }
