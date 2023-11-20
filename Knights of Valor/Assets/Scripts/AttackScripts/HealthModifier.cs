@@ -69,7 +69,7 @@ public class HealthModifier : MonoBehaviour
             
             return true;
         }
-        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "enemy")
+        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "enemy" && collider.tag != "laser")
         {
             
             return true;

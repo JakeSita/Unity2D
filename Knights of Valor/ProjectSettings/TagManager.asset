@@ -9,6 +9,7 @@ TagManager:
   - WorldUI
   - GameOverUI
   - Pillar
+  - laser
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Wall
   - Hittable
   - Enemy
-  - 
+  - Laser
   - 
   - 
   - 

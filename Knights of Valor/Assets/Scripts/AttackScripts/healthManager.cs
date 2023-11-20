@@ -47,6 +47,7 @@ public class HealthSystem : MonoBehaviour
         {
             if(gameObject.tag == "Pillar")
             {
+                this.Reset();
                 gameObject.SetActive(false);
             }
             if(gameObject.tag == "enemy")
@@ -65,7 +66,6 @@ public class HealthSystem : MonoBehaviour
         }
         
     }
-
 
     public float adjustCurrentHealth(float change, Vector2 direction, bool knockback) {
         if (_invicibilityFramesCurr > 0)
@@ -121,7 +121,7 @@ public class HealthSystem : MonoBehaviour
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
     }
-   
+
 
     void onDeath()
     {

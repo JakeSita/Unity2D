@@ -50,6 +50,10 @@ public class AIBrain2D : MonoBehaviour
     [SerializeField]
     private GameObject bossHealth;
 
+    [SerializeField]
+    private GameObject Laser;
+    public bool canFire = false;
+
     public bool hunt = false;
     #endregion
 
@@ -60,6 +64,7 @@ public class AIBrain2D : MonoBehaviour
         _curAIDirective = _defaultAction;
         anime = GetComponentInChildren<Animator>();
         TryGetComponent<NavMeshAgent>(out NavMeshAgent agent);
+
         
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -222,10 +227,25 @@ public class AIBrain2D : MonoBehaviour
         
     }
 
+    public void ShootLaser()
+    {
+        Debug.Log(" We are firing " + canFire);
+       if(canFire == true)
+         {
+           Laser.SetActive(true);
+         }
+       else
+         {
+           Laser.SetActive(false);
+         }
+    }
+
     public void MoveBossTowardsPlayer() {
 
-
-
+        if (!agent)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         if (agent) {
             hunt = true;
             agent.SetDestination(_playerObject.transform.position);
@@ -235,7 +255,20 @@ public class AIBrain2D : MonoBehaviour
 
     }
 
-    public void StartBossBattle()
+    public void MoveRockTowardsPlayer()
+    {
+        if (!agent)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+        if (agent)
+        {
+            hunt = true;
+            agent.SetDestination(_playerObject.transform.position);
+        }
+
+    }
+        public void StartBossBattle()
     {
         bossHealth.SetActive(true);
     }

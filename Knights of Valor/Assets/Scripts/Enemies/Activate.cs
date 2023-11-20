@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Activate : StateMachineBehaviour
 {
-    [SerializeField]
-    private GameObject laserbeam;
-
+    private AIBrain2D laserbeam;
+    private NavMeshAgent brain;
     private float timer = 4f;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(laserbeam != null)
-            laserbeam.SetActive(true);
+        laserbeam = animator.GetComponent<AIBrain2D>();
+        brain = animator.GetComponent<NavMeshAgent>();
+
+
+        laserbeam.canFire = true;
+
+        brain.isStopped = true;
+           
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -22,8 +28,8 @@ public class Activate : StateMachineBehaviour
         if(timer < 0)
         {
             timer = 4f;
-            if(laserbeam != null)
-            laserbeam.SetActive(false);
+            if (laserbeam != null)
+                laserbeam.canFire = false;
             animator.SetTrigger("Default");
         }
     }
