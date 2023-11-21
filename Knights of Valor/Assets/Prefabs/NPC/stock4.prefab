@@ -173,8 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
-  dialogues:
-  - 
+  dialogues: []
   playerInRange: 0
   spriteUp: {fileID: -590151977, guid: d1c41fa896dc34ab7b8b9dea28efd7b0, type: 3}
   spriteDown: {fileID: -461774175, guid: d1c41fa896dc34ab7b8b9dea28efd7b0, type: 3}
