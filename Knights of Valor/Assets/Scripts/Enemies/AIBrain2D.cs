@@ -50,10 +50,6 @@ public class AIBrain2D : MonoBehaviour
     [SerializeField]
     private GameObject bossHealth;
 
-    [SerializeField]
-    private GameObject Laser;
-    public bool canFire = false;
-
     public bool hunt = false;
     #endregion
 
@@ -63,9 +59,7 @@ public class AIBrain2D : MonoBehaviour
         _playerObject = FindObjectOfType<PlayerMovement>();
         _curAIDirective = _defaultAction;
         anime = GetComponentInChildren<Animator>();
-        TryGetComponent<NavMeshAgent>(out NavMeshAgent agent);
-
-        
+        agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -182,14 +176,7 @@ public class AIBrain2D : MonoBehaviour
 
     public void LookAtPlayer()
     {
-        if((transform.position.x - CalcPlayerPos().x) > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
+        
     }
 
     public void MoveTowardsPlayer(float Speed)
@@ -208,14 +195,10 @@ public class AIBrain2D : MonoBehaviour
 
     public void MoveTowardsPlayerUsingNavMesh()
     {
-
-            if (!agent)
-            {
-            agent = GetComponent<NavMeshAgent>();
-            }
+        
             if (agent)
             {
-                Debug.Log("hey we do have a agent");
+                Debug.Log("i get here");
                 agent.SetDestination(_playerObject.transform.position);
                 anime.SetFloat("x", agent.velocity.x);
                 anime.SetFloat("y", agent.velocity.y);
@@ -227,25 +210,10 @@ public class AIBrain2D : MonoBehaviour
         
     }
 
-    public void ShootLaser()
-    {
-        Debug.Log(" We are firing " + canFire);
-       if(canFire == true)
-         {
-           Laser.SetActive(true);
-         }
-       else
-         {
-           Laser.SetActive(false);
-         }
-    }
-
     public void MoveBossTowardsPlayer() {
 
-        if (!agent)
-        {
-            agent = GetComponent<NavMeshAgent>();
-        }
+
+
         if (agent) {
             hunt = true;
             agent.SetDestination(_playerObject.transform.position);
@@ -255,20 +223,7 @@ public class AIBrain2D : MonoBehaviour
 
     }
 
-    public void MoveRockTowardsPlayer()
-    {
-        if (!agent)
-        {
-            agent = GetComponent<NavMeshAgent>();
-        }
-        if (agent)
-        {
-            hunt = true;
-            agent.SetDestination(_playerObject.transform.position);
-        }
-
-    }
-        public void StartBossBattle()
+    public void StartBossBattle()
     {
         bossHealth.SetActive(true);
     }

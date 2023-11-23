@@ -23,9 +23,6 @@ public class HealthModifier : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    private bool knockBack = true;
-
-    [SerializeField]
     private float knockbackforce = 10f;
 
 
@@ -42,7 +39,7 @@ public class HealthModifier : MonoBehaviour
         
         if (healthManager && IsValidTarget(hitObj,collider))
         {
-            healthManager.adjustCurrentHealth(_healthChange, knockback, knockBack);
+            healthManager.adjustCurrentHealth(_healthChange, knockback);
 
         }
         if (_destroyOnCollision)
@@ -69,12 +66,9 @@ public class HealthModifier : MonoBehaviour
             
             return true;
         }
-        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "enemy" && collider.tag != "laser")
+        else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "enemy")
         {
             
-            return true;
-        }else if (_applyToTarget == DamageTarget.Enemies && possibleTarget.tag == "Pillar")
-        {
             return true;
         }
 
