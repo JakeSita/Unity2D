@@ -91,6 +91,7 @@ MonoBehaviour:
   _healthChange: -5
   _applyToTarget: 0
   _destroyOnCollision: 0
+  knockBack: 1
   knockbackforce: 10
 --- !u!114 &1984530118395426977
 MonoBehaviour:
@@ -171,7 +172,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
-        m_MethodName: LookAtPlayer
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
