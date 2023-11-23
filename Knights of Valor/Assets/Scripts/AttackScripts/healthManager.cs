@@ -45,9 +45,17 @@ public class HealthSystem : MonoBehaviour
 
         if (isDead())
         {
+            if(gameObject.tag == "Pillar")
+            {
+                this.Reset();
+                gameObject.SetActive(false);
+            }
             if(gameObject.tag == "enemy")
             {
-                _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
+                if (_inventory.GetActiveSlot().HasItem)
+                {
+                    _inventory.RemoveItem(_inventory.ActiveSlotIndex, true);
+                }
                 Destroy(gameObject);
             }
             if(gameObject.tag == "Player")
@@ -59,8 +67,7 @@ public class HealthSystem : MonoBehaviour
         
     }
 
-
-    public float adjustCurrentHealth(float change, Vector2 direction) {
+    public float adjustCurrentHealth(float change, Vector2 direction, bool knockback) {
         if (_invicibilityFramesCurr > 0)
             return _healthCur;
 
@@ -71,13 +78,16 @@ public class HealthSystem : MonoBehaviour
             ShowFloatingText(change);
         }
         Debug.Log(_healthCur);
-        rb.isKinematic = false;
+        if (knockback && this.gameObject.tag != "Pillar") 
+        {
+            rb.isKinematic = false;
 
 
-        rb.velocity = Vector2.zero;
-        rb.AddForce(direction, ForceMode2D.Impulse);
-        rb.drag = 20f;
-        StartCoroutine(EndKnockback(1));
+            rb.velocity = Vector2.zero;
+            rb.AddForce(direction, ForceMode2D.Impulse);
+            rb.drag = 20f;
+            StartCoroutine(EndKnockback(1));
+        }
 
 
 
@@ -111,7 +121,7 @@ public class HealthSystem : MonoBehaviour
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
     }
-   
+
 
     void onDeath()
     {
