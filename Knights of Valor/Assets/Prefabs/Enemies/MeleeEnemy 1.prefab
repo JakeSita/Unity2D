@@ -91,6 +91,7 @@ MonoBehaviour:
   _healthChange: -5
   _applyToTarget: 0
   _destroyOnCollision: 0
+  knockBack: 1
   knockbackforce: 10
 --- !u!114 &1984530118395426977
 MonoBehaviour:
@@ -171,7 +172,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
-        m_MethodName: LookAtPlayer
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -180,7 +181,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
         m_MethodName: Jump
@@ -192,7 +193,7 @@ MonoBehaviour:
           m_FloatArgument: 200
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
         m_MethodName: PauseAi
@@ -204,7 +205,7 @@ MonoBehaviour:
           m_FloatArgument: 1.5
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1247333711652935966}
         m_TargetAssemblyTypeName: AIBrain2D, Assembly-CSharp
         m_MethodName: SetState_Hunt
@@ -258,6 +259,8 @@ MonoBehaviour:
   isFiring: 0
   FireRate: 2
   bossHealth: {fileID: 0}
+  Laser: {fileID: 0}
+  canFire: 0
   hunt: 0
 --- !u!195 &8841575165237114397
 NavMeshAgent:
