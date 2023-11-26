@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         [SerializeField]
         private Shooting shot;
 
-        bool canMove = true;
+        public bool canMove = true;
 
         public static PlayerMovement Instance;
 
