@@ -27,24 +27,39 @@ namespace inventorySystem
 
 
 
-        public void SpawnItem(ItemStack itemstack) {
+        public void SpawnItem(ItemStack itemstack)
+        {
+            //    if (_itemBasePrefab == null) return;
+
+            //    var item = PrefabUtility.InstantiatePrefab(_itemBasePrefab) as GameObject;
+
+            //    item.transform.position = transform.position;
+
+            //    var GameItemScript = item.GetComponent<GameItem>();
+
+            //    GameItemScript.SetStack(new ItemStack(itemstack.Item, itemstack.NumberOfItems));
+
+            //    if(gameObject.tag == "Player")
+            //        GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
+
+            //}
             if (_itemBasePrefab == null) return;
 
-            var item = PrefabUtility.InstantiatePrefab(_itemBasePrefab) as GameObject;
-           
-            item.transform.position = transform.position;
+            var item = Instantiate(_itemBasePrefab, transform.position, Quaternion.identity);
 
             var GameItemScript = item.GetComponent<GameItem>();
 
-            GameItemScript.SetStack(new ItemStack(itemstack.Item, itemstack.NumberOfItems));
+            if (GameItemScript != null)
+            {
+                GameItemScript.SetStack(new ItemStack(itemstack.Item, itemstack.NumberOfItems));
 
-            if(gameObject.tag == "Player")
-                GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
-            
+                if (gameObject.tag == "Player")
+                    GameItemScript.Throw(anime.GetFloat("x"), anime.GetFloat("y"));
+            }
         }
 
-        
 
 
-    }
+
+        }
 }

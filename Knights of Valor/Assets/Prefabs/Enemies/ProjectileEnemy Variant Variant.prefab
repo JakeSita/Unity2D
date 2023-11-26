@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bb67cdcc6123b4c0ca4e405f72b94b7f, type: 2}
+    - target: {fileID: 5404492026071745983, guid: 68ad84e77945c4b6f96ddee0a5283869, type: 3}
+      propertyPath: _defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7143664376503029500, guid: 68ad84e77945c4b6f96ddee0a5283869, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460847928065793109, guid: 68ad84e77945c4b6f96ddee0a5283869, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.67676
+      value: -39.35618
       objectReference: {fileID: 0}
     - target: {fileID: 7460847928065793109, guid: 68ad84e77945c4b6f96ddee0a5283869, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3620737
+      value: -191.21198
       objectReference: {fileID: 0}
     - target: {fileID: 7460847928065793109, guid: 68ad84e77945c4b6f96ddee0a5283869, type: 3}
       propertyPath: m_LocalPosition.z

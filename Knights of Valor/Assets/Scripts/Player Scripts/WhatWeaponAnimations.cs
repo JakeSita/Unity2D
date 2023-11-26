@@ -15,6 +15,7 @@ public class WhatWeaponAnimations : MonoBehaviour
 
     private bool health = false;
     private bool Speed = false;
+    private bool Immune = false;
 
 
     void Start()
@@ -46,6 +47,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                         x._healthChange = _inventory.GetActiveSlot().Item.Damage;
                     health = false;
                     Speed = false;
+                    Immune = false;
                     break;
 
                 case "Silver Weapon":
@@ -55,6 +57,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                         x._healthChange = _inventory.GetActiveSlot().Item.Damage;
                     health = false;
                     Speed = false;
+                    Immune = false;
                     break;
 
                 case "Projectile Weapon":
@@ -62,7 +65,41 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("Melee Weapon", false);
                     health = false;
                     Speed = false;
+                    Immune = false;
                     break;
+
+
+                case "GoldSword":
+                    anime.SetBool("Melee Weapon", true);
+                    anime.SetBool("projectile Weapon", false);
+                    foreach (HealthModifier x in damageModifier)
+                        x._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    health = false;
+                    Speed = false;
+                    Immune = false;
+                    break;
+
+                case "SilverDagger":
+                    anime.SetBool("Melee Weapon", true);
+                    anime.SetBool("projectile Weapon", false);
+                    foreach (HealthModifier x in damageModifier)
+                        x._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    health = false;
+                    Speed = false;
+                    Immune = false;
+                    break;
+
+                case "WoodDagger":
+                    anime.SetBool("Melee Weapon", true);
+                    anime.SetBool("projectile Weapon", false);
+                    foreach (HealthModifier x in damageModifier)
+                        x._healthChange = _inventory.GetActiveSlot().Item.Damage;
+                    health = false;
+                    Speed = false;
+                    Immune = false;
+                    break;
+
+
 
 
                 case "Silver Projectile":
@@ -70,6 +107,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("Melee Weapon", false);
                     health = false;
                     Speed = false;
+                    Immune = false;
                     break;
 
 
@@ -78,6 +116,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("projectile Weapon", false);
                     health = true;
                     Speed = false;
+                    Immune = false;
                     break;
 
                 case "Speed Potion":
@@ -85,6 +124,15 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("projectile Weapon", false);
                     health = false;
                     Speed = true;
+                    Immune = false;
+                    break;
+
+                case "Immune Potion":
+                    anime.SetBool("Melee Weapon", false);
+                    anime.SetBool("projectile Weapon", false);
+                    health = false;
+                    Speed = false;
+                    Immune = true;
                     break;
 
                 default:
@@ -92,6 +140,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     anime.SetBool("projectile Weapon", false);
                     health = false;
                     Speed = false;
+                    Immune = false;
                     break;
             }
 
@@ -109,8 +158,8 @@ public class WhatWeaponAnimations : MonoBehaviour
 
     void OnFire()
     {
-        if(health == true) { 
-            PlayerHealth._healthCur += 25;
+        if(health) { 
+            PlayerHealth._healthCur += 10;
            if(_inventory.GetActiveSlot().NumberOfItems <= 1)
             {
                 _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
@@ -124,6 +173,19 @@ public class WhatWeaponAnimations : MonoBehaviour
         if(Speed)
         {
             GetComponent<PlayerMovement>().moveSpeed += 2;
+            if (_inventory.GetActiveSlot().NumberOfItems <= 1)
+            {
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
+            }
+            else
+            {
+                _inventory.GetActiveSlot().NumberOfItems--;
+            }
+        }
+
+        if (Immune)
+        {
+            PlayerHealth._invicibilityFramesCurr += 5f;
             if (_inventory.GetActiveSlot().NumberOfItems <= 1)
             {
                 _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);

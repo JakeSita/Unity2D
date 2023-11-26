@@ -644,7 +644,7 @@ MonoBehaviour:
   _size: 1
   _slots:
   - _state:
-      _item: {fileID: 11400000, guid: 8053e6e748d4b456ebf61d8568a1f2a3, type: 2}
+      _item: {fileID: 11400000, guid: 4598b0bfed20940c0a12d2429ce5bbad, type: 2}
       _numberOfItems: 1
 --- !u!114 &8389860278816349840
 MonoBehaviour:

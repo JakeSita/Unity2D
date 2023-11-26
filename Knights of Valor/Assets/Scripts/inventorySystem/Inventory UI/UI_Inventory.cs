@@ -38,14 +38,29 @@ namespace inventorySystem.UI
 
             for (var i = 0; i < _inventory.Size; i++)
             {
-                var uiSlot = PrefabUtility.InstantiatePrefab(_inventorySlotPrefab) as GameObject;
-                uiSlot.transform.SetParent(transform, false);
+                var uiSlot = Instantiate(_inventorySlotPrefab, transform);
                 var uiSlotScript = uiSlot.GetComponent<UI_InventorySlot>();
                 uiSlotScript.AssignSlot(i);
                 _slots.Add(uiSlotScript);
-
             }
         }
+
+        //private void IntializeInventoryUi()
+        //{
+        //    if (_inventory == null || _inventorySlotPrefab == null) return;
+
+        //    _slots = new List<UI_InventorySlot>(_inventory.Size);
+
+        //    for (var i = 0; i < _inventory.Size; i++)
+        //    {
+        //        var uiSlot = PrefabUtility.InstantiatePrefab(_inventorySlotPrefab) as GameObject;
+        //        uiSlot.transform.SetParent(transform, false);
+        //        var uiSlotScript = uiSlot.GetComponent<UI_InventorySlot>();
+        //        uiSlotScript.AssignSlot(i);
+        //        _slots.Add(uiSlotScript);
+
+        //    }
+        //}
     }
 }
 

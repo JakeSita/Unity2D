@@ -13,7 +13,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]
     private float _invincibilityFrameMax  = 1;
     [SerializeField]
-    private float _invicibilityFramesCurr = 0;
+    public float _invicibilityFramesCurr = 0;
     private bool _isdead                  = false;
 
     private Rigidbody2D rb;
