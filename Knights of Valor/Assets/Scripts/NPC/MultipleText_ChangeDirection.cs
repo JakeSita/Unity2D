@@ -27,20 +27,26 @@ public class MultipleText_ChangeDirection : MonoBehaviour
 
     private Sprite originalSprite; // To store the original sprite
 
-    private Transform playerTransform; // To store the player's Transform
+    public Transform playerTransform; // Public to set through the Inspector or find automatically
+    public float interactionRange = 1f; // Range within which player can interact
 
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
         originalSprite = spriteRenderer.sprite; // Store the original sprite
 
-        // Initialize your dialogues here, or set them in the inspector
+        if (!playerTransform)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Check distance to player
+        bool wasInRange = playerInRange;
+        playerInRange = Vector2.Distance(transform.position, playerTransform.position) <= interactionRange;
+
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
             if (!dialogBox.activeInHierarchy)
@@ -56,29 +62,23 @@ public class MultipleText_ChangeDirection : MonoBehaviour
             }
             else // End of dialogues
             {
-                dialogBox.SetActive(false);
-                currentDialogueIndex = 0; // Reset to first dialogue for next interaction
-                spriteRenderer.sprite = originalSprite; // Revert back to original sprite
+                HideDialogBox();
             }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        // Check if the player just moved out of range
+        if (wasInRange && !playerInRange)
         {
-            playerInRange = true;
-            playerTransform = collision.transform; // Store the player's transform
-            currentDialogueIndex = 0; // Reset to first dialogue
+            HideDialogBox();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void HideDialogBox()
     {
-        if (collision.CompareTag("Player"))
+        if (dialogBox.activeInHierarchy)
         {
-            playerInRange = false;
             dialogBox.SetActive(false);
+            currentDialogueIndex = 0; // Reset to first dialogue for next interaction
             spriteRenderer.sprite = originalSprite; // Revert back to original sprite
         }
     }

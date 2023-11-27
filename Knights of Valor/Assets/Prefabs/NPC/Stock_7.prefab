@@ -179,3 +179,5 @@ MonoBehaviour:
   spriteDown: {fileID: -2025328162, guid: 5ab26d3320f364f6f80765ed973913e0, type: 3}
   spriteLeft: {fileID: 2084379212, guid: 5ab26d3320f364f6f80765ed973913e0, type: 3}
   spriteRight: {fileID: -809330580, guid: 5ab26d3320f364f6f80765ed973913e0, type: 3}
+  playerTransform: {fileID: 0}
+  interactionRange: 1.5
