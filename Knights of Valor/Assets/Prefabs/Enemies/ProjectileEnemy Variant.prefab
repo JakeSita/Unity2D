@@ -153,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1984530118395426977, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _healthCur
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1984530118395426977, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: _healthMax
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2533226127775294938, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_Name
@@ -169,11 +169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.88066
+      value: -93.9974
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.062494755
+      value: -186.25424
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.z
