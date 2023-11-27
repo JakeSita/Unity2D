@@ -172,7 +172,7 @@ public class WhatWeaponAnimations : MonoBehaviour
 
         if(Speed)
         {
-            GetComponent<PlayerMovement>().moveSpeed += 2;
+            GetComponent<PlayerMovement>().moveSpeed += .5f;
             if (_inventory.GetActiveSlot().NumberOfItems <= 1)
             {
                 _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
