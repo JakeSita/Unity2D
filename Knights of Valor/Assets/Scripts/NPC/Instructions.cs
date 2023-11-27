@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;  // Import the TextMeshPro namespace
+using TMPro;
 
 public class MultipleTextAndImages : MonoBehaviour
 {
@@ -16,29 +16,42 @@ public class MultipleTextAndImages : MonoBehaviour
     private List<string> dialogues = new List<string>();
 
     [SerializeField, Tooltip("List of Images to display with the dialogue")]
-    private List<Sprite> dialogueImages;  // List of Sprites for dialogue
+    private List<Sprite> dialogueImages; // List of Sprites for dialogue
 
     private int currentDialogueIndex = 0;
-    public bool playerInRange;  
+    public bool playerInRange;
 
     [SerializeField, Tooltip("Image Component to display dialogue images")]
-    private Image dialogueImageComponent;  // Reference to the Image component
+    private Image dialogueImageComponent; // Reference to the Image component
 
-    // Update is called once per frame
+    public Transform playerTransform; // Public to set through the Inspector or find automatically
+    public float interactionRange = 1f; // Range within which player can interact
+
+    void Start()
+    {
+        if (!playerTransform)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
+        }
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && playerInRange)
+        // Check the distance to the player and update playerInRange
+        playerInRange = Vector2.Distance(transform.position, playerTransform.position) <= interactionRange;
+
+        if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
-            if(dialogBox.activeInHierarchy)
+            if (dialogBox.activeInHierarchy)
             {
                 currentDialogueIndex++;
                 if (currentDialogueIndex >= dialogues.Count) // Check if we've reached the end of the dialogues
                 {
                     dialogBox.SetActive(false);
                     currentDialogueIndex = 0; // Reset to first dialogue for next interaction
-                    if(dialogueImageComponent != null)
+                    if (dialogueImageComponent != null)
                     {
-                        dialogueImageComponent.gameObject.SetActive(false);  // Hide the image
+                        dialogueImageComponent.gameObject.SetActive(false); // Hide the image
                     }
                 }
                 else
@@ -46,7 +59,7 @@ public class MultipleTextAndImages : MonoBehaviour
                     UpdateDialogueAndImage();
                 }
             }
-            else 
+            else
             {
                 dialogBox.SetActive(true);
                 currentDialogueIndex = 0; // Start from the first dialogue
@@ -61,33 +74,10 @@ public class MultipleTextAndImages : MonoBehaviour
         {
             dialogText.text = dialogues[currentDialogueIndex]; // Set the text to the current dialogue
         }
-        if(dialogueImages.Count > currentDialogueIndex)
+        if (dialogueImages.Count > currentDialogueIndex)
         {
             dialogueImageComponent.sprite = dialogueImages[currentDialogueIndex]; // Set the image
-            dialogueImageComponent.gameObject.SetActive(true);  // Show the image
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            Debug.Log("Player in range");
-            playerInRange = true;
-        } 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            Debug.Log("Player has left range");
-            playerInRange = false;
-            dialogBox.SetActive(false);
-            if(dialogueImageComponent != null)
-            {
-                dialogueImageComponent.gameObject.SetActive(false);  // Hide the image
-            }
+            dialogueImageComponent.gameObject.SetActive(true); // Show the image
         }
     }
 }
