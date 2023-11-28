@@ -35,38 +35,51 @@ public class MultipleTextAndImages : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // Check the distance to the player and update playerInRange
-        playerInRange = Vector2.Distance(transform.position, playerTransform.position) <= interactionRange;
+void Update()
+{
+    // Check the distance to the player and update playerInRange
+    bool wasPlayerInRange = playerInRange;
+    playerInRange = Vector2.Distance(transform.position, playerTransform.position) <= interactionRange;
 
-        if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
+    if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
+    {
+        if (dialogBox.activeInHierarchy)
         {
-            if (dialogBox.activeInHierarchy)
+            currentDialogueIndex++;
+            if (currentDialogueIndex >= dialogues.Count) // Check if we've reached the end of the dialogues
             {
-                currentDialogueIndex++;
-                if (currentDialogueIndex >= dialogues.Count) // Check if we've reached the end of the dialogues
+                dialogBox.SetActive(false);
+                currentDialogueIndex = 0; // Reset to first dialogue for next interaction
+                if (dialogueImageComponent != null)
                 {
-                    dialogBox.SetActive(false);
-                    currentDialogueIndex = 0; // Reset to first dialogue for next interaction
-                    if (dialogueImageComponent != null)
-                    {
-                        dialogueImageComponent.gameObject.SetActive(false); // Hide the image
-                    }
-                }
-                else
-                {
-                    UpdateDialogueAndImage();
+                    dialogueImageComponent.gameObject.SetActive(false); // Hide the image
                 }
             }
             else
             {
-                dialogBox.SetActive(true);
-                currentDialogueIndex = 0; // Start from the first dialogue
                 UpdateDialogueAndImage();
             }
         }
+        else
+        {
+            dialogBox.SetActive(true);
+            currentDialogueIndex = 0; // Start from the first dialogue
+            UpdateDialogueAndImage();
+        }
     }
+
+    // Check if the player has moved out of range during a conversation
+    if (!playerInRange && wasPlayerInRange && dialogBox.activeInHierarchy)
+    {
+        dialogBox.SetActive(false);
+        currentDialogueIndex = 0; // Reset dialogue index
+        if (dialogueImageComponent != null)
+        {
+            dialogueImageComponent.gameObject.SetActive(false); // Hide the image
+        }
+    }
+}
+
 
     private void UpdateDialogueAndImage()
     {
