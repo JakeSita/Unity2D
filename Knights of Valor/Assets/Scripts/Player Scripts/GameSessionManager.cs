@@ -40,7 +40,7 @@ using UnityEngine.UI;
     public void ExitGame()
         {
             RespawnScreen(false);
-             Application.Quit();
+            Application.Quit();
         }
 
         public void Respawn()
