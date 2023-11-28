@@ -268,7 +268,7 @@ public class AIBrain2D : MonoBehaviour
         }
 
     }
-        public void StartBossBattle()
+    public void StartBossBattle()
     {
         bossHealth.SetActive(true);
     }

@@ -11,19 +11,17 @@ public class Activate : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        laserbeam = animator.GetComponent<AIBrain2D>();
         brain = animator.GetComponent<NavMeshAgent>();
-
-
+        laserbeam = animator.GetComponent<AIBrain2D>();
+        animator.ResetTrigger("ChargeBeam");
         laserbeam.canFire = true;
-
-        brain.isStopped = true;
            
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        brain.isStopped = true;
         timer -= Time.deltaTime;
         if(timer < 0)
         {

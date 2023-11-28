@@ -16,8 +16,10 @@ public class idleMovement : StateMachineBehaviour
     {
         brain = animator.GetComponent<AIBrain2D>();
         movement = animator.GetComponent<NavMeshAgent>();
-        movement.isStopped = false;
+        movement.isStopped = true;
+
         timer = laserShot;
+        animator.ResetTrigger("ChargeBeam");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -35,6 +37,7 @@ public class idleMovement : StateMachineBehaviour
             if (timer < 0)
             {
                 animator.SetTrigger("ChargeBeam");
+                timer = laserShot;
             }
 
         }
