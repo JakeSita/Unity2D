@@ -28,13 +28,19 @@ using UnityEngine.UI;
             else
                 player1.position = new Vector3(0, 0, 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
     }
 
 
     public void ExitGame()
         {
             RespawnScreen(false);
-            //Application.Quit()
+             Application.Quit();
         }
 
         public void Respawn()
