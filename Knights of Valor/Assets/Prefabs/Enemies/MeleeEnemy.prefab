@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344aba92e430448b6a6e436c068c77e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthChange: -5
+  _healthChange: -15
   _applyToTarget: 0
   _destroyOnCollision: 0
   knockBack: 1
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FloatingTextPrefab: {fileID: 3071725937916364389, guid: 00399bb97d2d1440784afd7ce2b6bad2, type: 3}
-  _healthMax: 25
-  _healthCur: 25
-  _invincibilityFrameMax: 0.5
+  _healthMax: 20
+  _healthCur: 20
+  _invincibilityFrameMax: 0.2
   _invicibilityFramesCurr: 0
 --- !u!50 &2406776196020842631
 Rigidbody2D:
@@ -259,6 +259,8 @@ MonoBehaviour:
   isFiring: 0
   FireRate: 2
   bossHealth: {fileID: 0}
+  Laser: {fileID: 0}
+  canFire: 0
   hunt: 0
 --- !u!195 &8841575165237114397
 NavMeshAgent:

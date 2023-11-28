@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1984530118395426977, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: _healthCur
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984530118395426977, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: _healthMax
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2533226127775294938, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy Variant
@@ -20,13 +28,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4226988153666151445, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
+      propertyPath: _healthChange
+      value: -18
+      objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.19952591
+      value: 5.975828
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1998627
+      value: -84.17028
       objectReference: {fileID: 0}
     - target: {fileID: 4451163997996269812, guid: 5c757d268bec34e04a8396a462170d6a, type: 3}
       propertyPath: m_LocalPosition.z
