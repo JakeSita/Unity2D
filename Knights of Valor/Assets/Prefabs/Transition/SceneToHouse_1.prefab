@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneToLoad: house_1
   _transitionTime: 1
+  xPosition: 0
+  yPosition: 0
 --- !u!61 &7395420224146382699
 BoxCollider2D:
   m_ObjectHideFlags: 0
