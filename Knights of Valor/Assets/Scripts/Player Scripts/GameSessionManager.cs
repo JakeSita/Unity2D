@@ -10,11 +10,24 @@ using UnityEngine.UI;
 
         public GameObject gameOverUI;
         public GameObject Player;
+        Transform player1;
 
 
     private void Start()
     {
         Player = GameObject.Find("Player");
+        player1 = Player.GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (CurrentRespawn)
+                player1.position = CurrentRespawn.position;
+            else
+                player1.position = new Vector3(0, 0, 0);
+        }
     }
 
 
