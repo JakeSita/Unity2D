@@ -25,7 +25,7 @@ public class route_transition : MonoBehaviour
     {
         dialogBox.SetActive(true);
         dialogText.text = dialog;
-        yield return new WaitForSeconds(2); // Dialog box will show for 4 seconds
+        yield return new WaitForSeconds(1.5f); // Dialog box will show for 4 seconds
         dialogBox.SetActive(false);
     }
 }
