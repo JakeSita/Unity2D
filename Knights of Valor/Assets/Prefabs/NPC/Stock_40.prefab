@@ -180,4 +180,4 @@ MonoBehaviour:
   spriteLeft: {fileID: 0}
   spriteRight: {fileID: 0}
   playerTransform: {fileID: 0}
-  interactionRange: 1
+  interactionRange: 1.5

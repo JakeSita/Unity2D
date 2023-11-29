@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9219318993040782996}
   - component: {fileID: 2552698170503750418}
   - component: {fileID: 7234750783055328271}
+  - component: {fileID: -8746075420635457699}
   m_Layer: 6
   m_Name: Stock_34
   m_TagString: Untagged
@@ -158,3 +159,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.88145065, y: 1.1788702}
   m_EdgeRadius: 0
+--- !u!114 &-8746075420635457699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262190262252994693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b547c2988ea2b0744b2ee598d7562958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
+  dialogues: []
+  playerInRange: 0
+  spriteUp: {fileID: -1342914502, guid: 5be68a0c61cb246eb95285650b25b2a9, type: 3}
+  spriteDown: {fileID: -558308653, guid: 5be68a0c61cb246eb95285650b25b2a9, type: 3}
+  spriteLeft: {fileID: 285154423, guid: 5be68a0c61cb246eb95285650b25b2a9, type: 3}
+  spriteRight: {fileID: -820941543, guid: 5be68a0c61cb246eb95285650b25b2a9, type: 3}
+  playerTransform: {fileID: 0}
+  interactionRange: 1.5
