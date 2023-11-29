@@ -24,6 +24,10 @@ public class HealthBarUI : MonoBehaviour
     public void Update()
     {
         SetHealth(health._healthCur);
+        if(health._healthMax != slider.maxValue)
+        {
+            SetMaxHealth(health._healthMax);
+        }
     }
 
 

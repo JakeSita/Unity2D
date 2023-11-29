@@ -16,6 +16,7 @@ public class WhatWeaponAnimations : MonoBehaviour
     private bool health = false;
     private bool Speed = false;
     private bool Immune = false;
+    private bool Red = false;
 
 
     void Start()
@@ -48,6 +49,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "Silver Weapon":
@@ -58,6 +60,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "Projectile Weapon":
@@ -66,6 +69,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
 
@@ -77,6 +81,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "SilverDagger":
@@ -87,6 +92,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "WoodDagger":
@@ -97,6 +103,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
 
@@ -108,6 +115,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
 
@@ -117,6 +125,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = true;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "Speed Potion":
@@ -125,6 +134,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = true;
                     Immune = false;
+                    Red = false;
                     break;
 
                 case "Immune Potion":
@@ -133,7 +143,19 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = true;
+                    Red = false;
                     break;
+
+                case "Red Gem":
+                    anime.SetBool("Melee Weapon", false);
+                    anime.SetBool("projectile Weapon", false);
+                    health = false;
+                    Speed = false;
+                    Immune = false;
+                    Red = true;
+                    break;
+
+
 
                 default:
                     anime.SetBool("Melee Weapon", false);
@@ -141,6 +163,7 @@ public class WhatWeaponAnimations : MonoBehaviour
                     health = false;
                     Speed = false;
                     Immune = false;
+                    Red = false;
                     break;
             }
 
@@ -152,15 +175,17 @@ public class WhatWeaponAnimations : MonoBehaviour
             anime.SetBool("projectile Weapon", false);
             health = false;
             Speed = false;
+            Red = false;
         }
     }
 
 
     void OnFire()
     {
-        if(health) { 
+        if (health)
+        {
             PlayerHealth._healthCur += 15;
-           if(_inventory.GetActiveSlot().NumberOfItems <= 1)
+            if (_inventory.GetActiveSlot().NumberOfItems <= 1)
             {
                 _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
             }
@@ -170,7 +195,7 @@ public class WhatWeaponAnimations : MonoBehaviour
             }
         }
 
-        if(Speed)
+        if (Speed)
         {
             GetComponent<PlayerMovement>().moveSpeed += .5f;
             if (_inventory.GetActiveSlot().NumberOfItems <= 1)
@@ -195,7 +220,19 @@ public class WhatWeaponAnimations : MonoBehaviour
                 _inventory.GetActiveSlot().NumberOfItems--;
             }
         }
+        if (Red)
+        {
+            PlayerHealth._healthMax += 10;
+            if (_inventory.GetActiveSlot().NumberOfItems <= 1)
+            {
+                _inventory.RemoveItem(_inventory.ActiveSlotIndex, false);
+            }
+            else
+            {
+                _inventory.GetActiveSlot().NumberOfItems--;
+            }
 
 
+        }
     }
 }
