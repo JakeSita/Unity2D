@@ -13,6 +13,9 @@ public class pillarRespawn : MonoBehaviour
     [SerializeField]
     GameObject pillar4;
 
+    [SerializeField]
+    float respawnTimer = 15f;
+
     // Update is called once per frame
     void Update()
     {
@@ -22,21 +25,21 @@ public class pillarRespawn : MonoBehaviour
         }
         if (pillar2 && !pillar2.activeInHierarchy)
         {
-            StartCoroutine(ReactivatePillar(pillar1));
+            StartCoroutine(ReactivatePillar(pillar2));
         }
         if (pillar4 && !pillar4.activeInHierarchy)
         {
-            StartCoroutine(ReactivatePillar(pillar1));
+            StartCoroutine(ReactivatePillar(pillar3));
         }
         if (pillar3 && !pillar3.activeInHierarchy)
         {
-            StartCoroutine(ReactivatePillar(pillar1));
+            StartCoroutine(ReactivatePillar(pillar4));
         }
     }
 
     private IEnumerator ReactivatePillar(GameObject pillar)
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(respawnTimer);
 
         pillar.SetActive(true);
     }
