@@ -11,12 +11,14 @@ using UnityEngine.UI;
         public GameObject gameOverUI;
         public GameObject Player;
         Transform player1;
+        //PlayerMovement move;
 
 
     private void Start()
     {
         Player = GameObject.Find("Player");
         player1 = Player.GetComponent<Transform>();
+        //move = Player.GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -33,6 +35,7 @@ using UnityEngine.UI;
         {
             Application.Quit();
         }
+
 
     }
 

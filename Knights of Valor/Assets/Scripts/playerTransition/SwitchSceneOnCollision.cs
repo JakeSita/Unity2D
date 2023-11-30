@@ -18,10 +18,13 @@ public class SwitchSceneOnCollision : MonoBehaviour
     public float yPosition;
 
     private bool _hasCollided = false;
+    private PlayerMovement move;
 
     void Start()
     {
         fade = FindObjectOfType<FadeIn>();
+        move = FindObjectOfType<PlayerMovement>();
+
     }
 
     void Update()
@@ -30,10 +33,12 @@ public class SwitchSceneOnCollision : MonoBehaviour
         // and switch scene when it reaches 0 or below.
         if (_hasCollided)
         {
-            _transitionTime -= Time.deltaTime;
 
+            _transitionTime -= Time.deltaTime;
+            move.canMove = false;
             if (_transitionTime <= 0f)
             {
+                move.canMove = true;
                 SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
             }
         }

@@ -20,9 +20,12 @@ public class SwitchScenesDoor : MonoBehaviour
     [SerializeField, Tooltip("Y position where the player will spawn")]
     public float yPosition;
 
+    PlayerMovement move;
+
     void Start()
     {
         fade = FindObjectOfType<FadeIn>();
+        move = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
@@ -30,6 +33,7 @@ public class SwitchScenesDoor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
             _startCountdown = true;
+            move.canMove = false;
         }
 
         if (_startCountdown)
@@ -51,7 +55,7 @@ public class SwitchScenesDoor : MonoBehaviour
         {
             playerTransform.position = new Vector3(xPosition, yPosition);
         }
-
+        move.canMove = true;
         // Load the new scene
         SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
     }
