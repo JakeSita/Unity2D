@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
         BoxCollider2D walkCol;
         private Vector2 movementInput;
         Rigidbody2D movementRb;
+
         [SerializeField]
         private bool Swing;
         private Vector3 Looking;
@@ -187,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         private bool tryMove(Vector2 direction)
         {
             int count = walkCol.Cast(
-                    direction,//X and Y value between -1 and 1 that represents the direction from the body to look for collisions
+                    direction, //X and Y value between -1 and 1 that represents the direction from the body to look for collisions
                     movementFilter, //the setting that determine where a collision can occur on such as layers to collide with
                     castCollisions, // list of collisions to store the found collision into after the cast is finished
                     moveSpeed * Time.deltaTime + collisionOffset // the amount to cast equal to the movement plus an offset

@@ -111,7 +111,6 @@ public class AIBrain2D : MonoBehaviour
 
     public void SetState_MiscPattern(int Pattern)
     {
-        // Your logic for changing AI patterns here (if needed)
     }
 
     #endregion
